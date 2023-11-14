@@ -1,0 +1,42 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js">
+
+</script>
+<script>
+	$(document).ready(function () {
+        $.ajax({
+            url: "getJoinings.php",
+            type: "post",
+            data:"submit=true",
+            dataType: "json",
+            success: function (results) {
+let formData = '';
+for (let x = 0; x < results.length; x++) {
+    formData = '';
+    let keys = Object.keys(results[x]);
+    for (let z = 0; z < keys.length; z++) {
+        formData += keys[z] + "=" + results[x][keys[z]] + "&";
+    }
+    $.ajax({
+                    url: "https://script.google.com/macros/s/AKfycbyhTmA_kYFm0uujaUkES0-MEc-Gh11u3KlNXbU4molOeG-LNKoMZGl4B8YjP2NKFnh-/exec?gid=0",
+                    type: "post",
+                    data: formData,
+                    success: function (data) {
+                        console.log(data['status'])
+                    },
+                    error:function(err){
+                        console.log(err)
+                    }
+                })
+}
+            },
+            error: function (error) {
+                console.log(error)
+            }
+        })
+
+
+
+
+    })
+
+</script>

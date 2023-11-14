@@ -1,0 +1,227 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style>
+/* PROGRESS BAR STARTS */
+.progress-bar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: red;
+  height: 3px;
+  z-index: 999;
+  border-radius: 0 2px 2px 0;
+  width: 0%;
+}
+/* PROGRESS BAR ENDS */
+.header{
+  background: #000000e7;
+  color: white;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1001;
+}
+.createdby{
+  color: #747474;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.topBar{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+  height:40px;
+  overflow:hidden;
+}
+.topBarLabel{
+    left:-10px;
+    font-size:30px;
+}
+.topBarLabel img{
+    margin-top:5px;
+  position: relative;
+  left: -10px;
+  height: 60px;
+}
+.topBarLabel a{
+  text-decoration: none;
+  color: var(--six-color);
+}
+.topBarToggler{
+  font-size: 28px;
+  cursor: pointer;
+}
+.topBarMenuLG{
+  display: none;
+  flex-direction: row;
+  gap: 20px;
+}
+.topBarMenuLG a{
+  font-size: 17px !important;
+}
+.topBarMenuLG a:hover{
+  text-shadow: #02B152 4px 4px 10px;
+}
+.topBarMenu{
+  text-align: center;
+  padding-bottom: 1px;
+  display: none;
+}
+.topBarMenu_List{
+  text-align: center;
+  list-style: none;
+  padding-left: 0;
+}
+.topBarMenu_List li a, .topBarMenuLG a{
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  color: rgb(201, 201, 201);
+  font-size: 20px;
+  line-height: 45px;
+  padding-bottom: 4px;
+}
+.topBarMenu_List li a:hover,.topBarMenuLG a:hover{
+  color: white;
+}
+.topBarMenu_List li a::before,.topBarMenuLG a::before  {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s;
+}
+.topBarMenu_List li:nth-child(odd) a::before {
+  left: 0;
+}
+.topBarMenu_List li:nth-child(even) a::before {
+  right: 0;
+}
+.topBarMenu_List li a:hover::before, .topBarMenuLG a:hover::before{
+  width: 100%;
+}
+.bars{
+  transition: 0.5s;
+}
+.barsToggle{
+  transform: rotate(-90deg);
+  display: none;
+}
+.timesToggle{
+  transform: rotate(90deg);
+  display: block;
+}
+
+@media (min-width:1024px){
+  .topBarToggler{
+    display: none;
+  }
+  .topBarMenuLG{
+    display: flex;
+  }
+  .topBar{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+</style>
+
+<div class="progress-bar"></div>
+<section class="header">
+    <div class="topBar">
+      <span class="topBarLabel"><a href="index.php"><img src="img/itclublogo.gif" alt="IT Club"></a></span>
+      <span class="topBarToggler"><i class="fa fa-bars bars"></i></span>
+
+      <div class="topBarMenuLG">
+        <a href="/">Home</a>
+        <a href="ourevents.php">Events</a>
+        <a href="allnotices.php">Notices</a>
+        <a href="members.php">Members</a>
+        <a href="result.php">Check Result</a>
+      </div>
+    </div>
+    <div class="topBarMenu">
+      <ul class="topBarMenu_List">
+        <li class="animate__animated"><a href="/">Home</a></li>
+        <li class="animate__animated"><a href="allnotice.php">Notices</a></li>
+        <li class="animate__animated"><a href="ourevents.php">Events</a></li>
+        <li class="animate__animated"><a href="members.php">Members</a></li>
+        <li class="animate__animated"><a href="#contact">Contact</a></li>
+        <li class="animate__animated"><a href="result.php">Check Result</a></li>
+        <li class="animate__animated"><a href="admin/">Admin Panel</a></li>
+      </ul>
+        <!-- <p class="createdby"><i class="fas fa-signature"></i> Created by Omprakash Kumar</p> -->
+    </div>
+  </section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+// PROGRESS BAR STARTS
+var pg=0; //progress bar width initially
+document.onreadystatechange = function()
+{
+  if(document.readyState=="interactive")
+  {
+    var allElem = $("*");
+    var length = allElem.length;
+    console.log(allElem)
+    for(var i=0;i<length;i++) {
+      set_elem(allElem[i],length);
+    }
+  }
+}
+function  set_elem(elem,total) {
+  var percent_inc = 100 / total; //equally divide 100 among all elements
+  
+//if element is loaded
+  if($(elem).length==1) {
+    $('.progress-bar').animate({width:pg+percent_inc+"%"},10,function(){
+      if($('.progress-bar').css('width')>"99%") {
+        //hide the bar
+        $('.progress-bar').css('border-radius:0;')
+        $('.progress-bar').slideUp(500);
+        $('.progress-bar').fadeOut(500);
+      }
+    });
+    //update the previous width value 
+    pg = pg+percent_inc;
+  }
+}
+// PROGRESS BAR ENDS
+
+</script>
+<script>
+
+$(document).ready(function() {
+  $.ajax({
+    url:'action/stats.php',
+    type:'post',
+    dataType:'json',
+    data:'stat=true',
+    success:function(stats){
+      console.log(stats)
+    }
+  })
+  
+  $(".topBarMenu_List li:odd").addClass("menuItem_left animate__fadeOutRight");
+  $(".topBarMenu_List li:even").addClass("menuItem_right animate__fadeOutLeft");
+});
+
+    $('.topBarToggler').click(function () {
+  $('.topBarMenu').slideToggle('slow')
+  $('.topBarToggler i').toggleClass('fa-bars')
+  $('.topBarToggler i').toggleClass('fa-times')
+  $('.bars').toggleClass('barsToggle')
+  $('.bars').toggleClass('timesToggle')
+  $('.menuItem_left').toggleClass('animate__fadeInLeft')
+  $('.menuItem_left').toggleClass('animate__fadeOutRight')
+  $('.menuItem_right').toggleClass('animate__fadeInRight')
+  $('.menuItem_right').toggleClass('animate__fadeOutLeft')
+})
+</script>

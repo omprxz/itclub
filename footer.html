@@ -1,0 +1,265 @@
+<link rel="stylesheet" href="common.css">
+
+<style>
+
+:root{
+  --fir-color:#000000;
+  --sec-color:#0c0c0c;
+  --thi-color:#686868;
+  --fou-color:#a1a1a1;
+  --fif-color:#cccccc;
+  --six-color:#ffffff;
+  --sev-color: #272631;
+}
+button#scrollToTopButton {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 0;
+    padding: 10px;
+    cursor: pointer;
+    display: none;
+    z-index: 1002;
+}
+
+button#scrollToTopButton i {
+    color: black;
+}
+.footer{
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 100px;
+  background-color: #3586FF;
+  display: flex;
+  margin-top: 50px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.footer .wave{
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(img/wave.png);
+  background-size: 1000px 100px;
+}
+.footer .wave#wave1{
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWave 4s linear infinite;
+}
+.footer .wave#wave2{
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animateWave2 4s linear infinite;
+}
+.footer .wave#wave3{
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWave 3s linear infinite;
+}
+.footer .wave#wave4{
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animateWave2 3s linear infinite;
+}
+
+@keyframes animateWave {
+  0%{
+    background-position-x: 1000px;
+  }
+  100%{
+    background-position-x: 0;
+  } 
+}
+@keyframes animateWave2 {
+  0%{
+    background-position-x: 0;
+  }
+  100%{
+    background-position-x: 1000px;
+  } 
+}
+
+.foot1,.foot2,.foot3{
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.foot1 p{
+  margin-bottom: 0;
+  text-decoration: underline;
+  color: #000000;
+}
+.foot1 a,.foot3 div{
+  line-height: 25px;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 15px;
+}
+.foot2 p{
+  margin-bottom: 0;
+  text-align: center;
+  text-decoration: underline;
+  color: #000;
+}
+.foot2 div{
+  line-height: 25px;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 15px;
+}
+.foot3 p{
+  text-align: center;
+  margin-bottom: 3px;
+  text-decoration: underline;
+  color: #000;
+}
+.foot3 div{
+  text-align: center;
+  margin-top: 5px;
+  color: #1a1a1a;
+}
+
+ @media screen and (min-width:767px){
+  .footer{
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: start;
+  }
+ }
+.footer_bottom{
+  position: relative;
+  bottom: 0;
+  padding: 10px;
+  border-top: 1px solid black;
+  text-align: center;
+  background: #000c1d;
+}
+.footer_bottom .copyright{
+  color: #cacaca;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+.footer_bottom .createdby{
+  color: #747474;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+.media-icons{
+  margin: 0;
+  padding: 0;
+}
+.media-icons li {
+  display: inline-block;
+  margin: auto 2px;
+}
+.media-icons a {
+  font-size: 1.1em;
+  width: 2em;
+  height: 2em;
+  border: 1px #fff solid;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  text-decoration: none;
+  color: white;
+}
+.media-icons a:hover {
+  background: #fff;
+  color: #111;
+}
+</style>
+  <br><br><br><br>
+  <button id="scrollToTopButton">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+<footer class="footer" data-aos="fade-up" data-aos-duration="800">
+    <div class="waves">
+      <div class="wave" id="wave1"></div>
+      <div class="wave" id="wave2"></div>
+      <div class="wave" id="wave3"></div>
+      <div class="wave" id="wave4"></div>
+    </div>
+  
+  
+  <div class="foot1" data-aos="fade-up" data-aos-duration="800">
+      <p>Quick Links</p>
+      <a href="faqs.php">FAQs</a><br>
+      <a href="members.php">Members</a><br>
+      <a href="ourevents.php">Our Events</a><br>
+      <a href="index.php#gallery">Gallery</a><br>
+      <a href="joinus.php">Join IT Club</a><br>
+      <a href="result.php">Check Result</a><br>
+      <a href="admin/">Admin Panel</a><br>
+    </div>
+  <div class="foot2" data-aos="fade-up" data-aos-duration="800">
+      <p>Got any issues?</p>
+      <div>Email us on:<br><a style="text-decoration: none;color: #1a1a1a;" href="mailto:ngppitclub@gmail.com">ngppitclub@gmail.com</a></div>
+    </div>
+  <div class="foot3" data-aos="fade-up" data-aos-duration="800">
+      <p>Location</p>
+      <div>
+        New Govt. Polytechnic Patliputra <br>
+        Patna, Bihar, India <br>
+        Pin - 800013</div><br>
+        <a style="text-decoration: none;color: inherit;" target="_blank" href="https://www.google.com/maps?ll=25.630432,85.10357&z=17&t=h&hl=en-US&gl=US&mapclient=embed&cid=15689595626209467142">
+          <i class="fas fa-map-location-dot"></i> View on Google Map
+        </a>
+    </div>
+
+</footer>
+<div class="footer_bottom">
+  <ul class="media-icons">
+    <li>
+      <a target="_blank" href="https://www.instagram.com/_itclub_official"><i class="fa-brands fa-instagram"></i></a>
+    </li>
+    <li>
+      <a target="_blank" href="https://t.me/+oh1lxCfNVlk4ZGY1"><i class="fa-brands fa-telegram"></i></a>
+    </li>
+  </ul>
+  <p class="copyright"><i class="far fa-copyright"></i> <span id="currentYear">2023</span> IT Club NGP Patna 13</p>
+  <p class="createdby"><i class="fas fa-signature"></i> Created by Omprakash Kumar</p>
+</div>
+
+<script>
+  var currentYear = new Date().getFullYear();
+  document.getElementById("currentYear").textContent = currentYear;
+  
+  
+  $(document).ready(function () {
+    const scrollToTopButton = $("#scrollToTopButton");
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            scrollToTopButton.fadeIn();
+            const borderRadius = Math.min(100, (100 * $(this).scrollTop()) / ($(document).height() - $(window).height()));
+            scrollToTopButton.css('border-radius', `${borderRadius}%`);
+        } else {
+            scrollToTopButton.fadeOut();
+            scrollToTopButton.css('border-radius', '0%');
+        }
+    });
+
+    scrollToTopButton.click(function () {
+        $('html, body').animate({ scrollTop: 0 }, 1000);
+        return false;
+    });
+});
+</script>
