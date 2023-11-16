@@ -37,6 +37,7 @@ if (!isset($_SESSION['loggedin'])) {
   <a href="create_event.php" class="btnLinks">Create Event</a>
   <a href="add_result.php" class="btnLinks">Publish Results</a>
   <a href="extra_values.php" class="btnLinks">Extra</a>
+  <a href="blog" class="btnLinks">Blog</a>
 <a href="sqlquery.php" class="btnLinks">SQL Query</a>
 </div>
 
