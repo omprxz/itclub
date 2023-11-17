@@ -1,4 +1,14 @@
 let tags = [], tag;
+
+const now = new Date();
+const optionsDate = { timeZone: 'Asia/Kolkata' };
+
+function formattedDate(dt){
+  let formattedDateNow = dt.toLocaleString('sv', { ...optionsDate, hour12: false }).replace(' ', 'T');
+  return formattedDateNow;
+}
+$('.sTime').val(formattedDate(now))
+
 const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -24,7 +34,7 @@ $(".thumbnail").on("change",function(event){
 
   reader.readAsDataURL(file);
   
-  $('.thumbnail-prev').onerror(function(){
+  $('.thumbnail-prev').on('error',function(){
   $(".thumbnail-prev").attr('src','../../blogs/thumbnails/thumbnail.png');
   })
 })
@@ -43,24 +53,24 @@ $(".tagList").on('click', 'span i', function() {
   })
 
 $(".addTag").on('click', function() {
-  tag = $(".inpTag").val()
+  tag = $(".inpTag").val().trim()
   tagArr = tag.split(',')
   for (let i = 0; i < tagArr.length; i++) {
-    if (!tags.includes(tagArr[i]) && tagArr[i] != "") {
-      tags.push(tagArr[i])
+    if (!tags.includes(tagArr[i].trim()) && tagArr[i].trim() != "") {
+      tags.push(tagArr[i].trim())
       if (!$(".tagList").find('span').length) {
-        $('.tagList').html(`<span>${tagArr[i]}<i class="fas fa-times"></i></span>`)
+        $('.tagList').html(`<span>${tagArr[i].trim()}<i class="fas fa-times"></i></span>`)
       } else {
-        $('.tagList').append(`<span>${tagArr[i]}<i class="fas fa-times"></i></span>`)
+        $('.tagList').append(`<span>${tagArr[i].trim()}<i class="fas fa-times"></i></span>`)
       }
     } else {
-      if (tags.includes(tagArr[i])) {
+      if (tags.includes(tagArr[i].trim())) {
         Toast.fire({
           icon:'warning',
           title:'Duplicate tags',
           timer:2000
         })
-      } else if (tagArr[i] == "") {
+      } else if (tagArr[i].trim() == "") {
         Toast.fire({
           icon:'error',
           title:'Empty tag',
@@ -77,7 +87,6 @@ $(".visibility").on("change",function(){
   if($(this).val()=='schedule'){
     $('.input-sTime').css('display','flex');
   }else{
-    $('.sTime').val('');
     $('.input-sTime').css('display','none');
   }
 })
@@ -107,7 +116,7 @@ if(isValid && contentEditor.getHTMLCode() != ""){
   console.log(blogData);
   let createInt;
    $.ajax({
-    url: '../blog/add_blog.php',
+    url: '../blog/createblog_action.php',
     type: 'POST',
     data: blogData,
     dataType: 'json',

@@ -4,7 +4,7 @@ if (isset($_SESSION['loggedin'])) {
     header('Location: index.php');
     exit();
 }
-header('Location: index.php');
+//header('Location: index.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

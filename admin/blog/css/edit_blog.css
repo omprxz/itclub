@@ -35,7 +35,6 @@ rte-plusbtn, rte-taglist {
 .inputs {
   margin-bottom: 1.5rem;
 }
-
 .title{
   font-weight: bold;
 }
@@ -148,7 +147,7 @@ rte-plusbtn, rte-taglist {
   text-align: center;
   margin-top: 20px;
 }
-.createBlog {
+.updateBlog {
   height: 45px;
   border: 0;
   margin-top: 0px;
@@ -161,7 +160,7 @@ rte-plusbtn, rte-taglist {
   color: #fff;
   transition: all 0.3s;
 }
-.createBlog:hover {
+.updateBlog:hover {
   background: #ee2f00;
 }
 .uploadStatusDiv {

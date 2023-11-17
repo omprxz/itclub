@@ -10,22 +10,6 @@ $response = array();
 
 $admin_id = $_SESSION["admin_id"];
 require('../../action/conn.php');
-$st = "select admin_level from adminCreds where admin_id = '$admin_id'";
-$result = mysqli_query($mysqli, $st);
-
-if ($result) {
-  $row = mysqli_fetch_assoc($result);
-  $admin_level = $row['admin_level'];
-  mysqli_free_result($result);
-} else {
-  $response['status']='failed';
-  $response['result']='Can\'t fetch admin level.';
-  $response=json_encode($response);
-  echo($response);
-  exit();
-}
-
-
 
 function sanitizeInput($input, $conn) {
   if (is_array($input)) {
@@ -45,20 +29,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $title = sanitizeInput($_POST['title'], $mysqli);
   $content = sanitizeInput($_POST['content'], $mysqli);
   $tags = sanitizeInput($_POST['tags'], $mysqli);
+  
+  $id=$_POST['id'];
+  $pubTime=$_POST['pubTime'];
+  $sameThumbnail=$_POST['sameThumbnail'];
+  $thumbnailUrl=$_POST['thumbnailUrl'];
+  $titleFetched=$_POST['titleFetched'];
+  $uniqid=substr($titleFetched,-13);
 
-
-  if ($admin_level >= 7) {
     $visibility = sanitizeInput($_POST['visibility'], $mysqli);
-  } else {
-    $visibility = 'private';
-  }
-
 
   if ($visibility == 'schedule') {
     if ($_POST['sTime']) {
       $userDatetime = $_POST['sTime'];
     } else {
-      $userDatetime = 'now';
+      $userDatetime = $pubTime;
     }
     $userTimezone = 'Asia/Kolkata';
     $userDateTimeObj = new DateTime($userDatetime, new DateTimeZone($userTimezone));
@@ -66,14 +51,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $convertedDateTime = $userDateTimeObj->format('Y-m-d H:i:s');
     $publishTime = $convertedDateTime;
   } else {
-    $currentTime = new DateTime('now', new DateTimeZone('UTC'));
-    $currentTime->setTimezone(new DateTimeZone('Asia/Kolkata'));
-    $datetime = $currentTime->format('Y-m-d H:i:s');
-    $publishTime = $datetime;
+    $publishTime = $pubTime;
   }
 
   //THUMBNAIL STARTS HERE
-  if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] === UPLOAD_ERR_OK) {
+  if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] === UPLOAD_ERR_OK && $sameThumbnail == 'no') {
     $thumbnail = $_FILES['thumbnail'];
     $file_name = $thumbnail['name'];
     $file_size = $thumbnail['size'];
@@ -125,32 +107,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   echo($response);
     }
   } else {
-    $thumbnail = "thumbnail.png";
+    $thumbnail = $thumbnailUrl;
   }
   //THUMBNAIL ENDS HERE
 
   $url = strtolower(str_replace(' ', '-', $title));
 
-  $url = uniqid($url."_");
+  $url .= '_'.$uniqid;
 
 
   if ($err == 0) {
-    $sql = "insert into blogs (title,content,thumbnail,tags,visibility,publishTime,url,adminId) values('$title','$content','$thumbnail','$tags','$visibility','$publishTime','$url',$admin_id)";
+    $sql = "UPDATE blogs SET 
+    title = '$title',
+    content = '$content',
+    thumbnail = '$thumbnail',
+    tags = '$tags',
+    visibility = '$visibility',
+    publishTime = '$publishTime',
+    url = '$url'
+    WHERE id = $id";
     if (mysqli_query($mysqli, $sql)) {
        $response['status']='success';
        
-       if($visibility=='public'){
-        $response['result']='Blog published. Thanks.';
-       }elseif ($visibility=='schedule') {
-        $response['result']='Blog has been scheduled. Thanks.';
+       if ($visibility=='schedule') {
+        $response['result']='Blog updated. Thanks.';
        }else{
-         $response['result']='Blog will be published after review. Thanks.';
+         $response['result']='Blog updated. Thanks.';
        }
   $response=json_encode($response);
   echo($response);
     } else {
        $response['status']='failed';
-  $response['result']='Error while creating blog.';
+  $response['result']='Error while creating blog.'.mysqli_error($mysqli);
   $response=json_encode($response);
   echo($response);
     }

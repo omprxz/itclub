@@ -1,19 +1,18 @@
 <?php
 session_start();
 if (!isset($_SESSION["loggedin"])) {
-  header("Location: /admin/");
+  header("Location: ../");
   exit();
 }
-require('../../action/conn.php');
 $admin_id = $_SESSION["admin_id"];
-
+require "../../action/conn.php";
 ?>
 <html>
 <head>
   <meta name="viewport" content="width=device-width" />
 
-<title>Edit blog</title>
-<link rel="stylesheet" href="css/edit_blog.css" />
+<title>Write a blog</title>
+<link rel="stylesheet" href="css/create_blog.css" />
 <link rel="stylesheet" href="/richtexteditor/rte_theme_default.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 
@@ -21,13 +20,13 @@ $admin_id = $_SESSION["admin_id"];
 <body>
 
 <div class="container">
-<h1 style="text-align:center;text-decoration:underline;">Edit blog &nbsp;<i class="fas fa-pencil"></i></h1>
+<h1 style="text-align:center;text-decoration:underline;">Write a blog &nbsp;<i class="fas fa-pencil"></i></h1>
 
 <form id="blogForm" class="blogForm" method="post" enctype="multipart/form-data">
 <div class="col">
 
 <div class="inputs float-inputs input-title">
-<input type="text" class="float-input title" name="title" value="<?php echo $rowData['title'];?>" id="title" placeholder=" " required />
+<input type="text" class="float-input title" name="title" id="title" placeholder=" " required />
 <label class="float-label" for="title">Blog title</label>
 </div>
 
@@ -51,7 +50,7 @@ $admin_id = $_SESSION["admin_id"];
 <label for="thumbnail" class="thumbnail-label">Select Thumbnail (Max 1 MB)</label>
 <input type="file" name="thumbnail" id="thumbnail" class="thumbnail" accept="image/*" />
 <label for="thumbnail" style="text-align:center;">
-<img class="thumbnail-prev" id="thumbnail-prev" src="" onerror="this.onerror=null; this.src='../../blogs/thumbnails/thumbnail.png';" alt="">
+<img class="thumbnail-prev" id="thumbnail-prev" src="uu" onerror="this.onerror=null; this.src='../../blogs/thumbnails/thumbnail.png';" alt="">
 </label>
 <label for="thumbnail" class="thumbnail-label">Thumbnail Preview</label>
 </div>
@@ -78,7 +77,7 @@ $admin_id = $_SESSION["admin_id"];
 <progress class="uploadStatus" min="0" max="100" value="0"></progress>
 </div>
 <div class="inputs input-submit">
-<button class="updateBlog" type="button">Update Blog</button>
+<button class="createBlog" type="button">Create Blog</button>
 </div>
 </div>
 
@@ -93,7 +92,7 @@ $admin_id = $_SESSION["admin_id"];
 <script type="text/javascript" src="/richtexteditor/rte.js"></script>
 <script type="text/javascript" src='/richtexteditor/plugins/all_plugins.js'></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="js/edit_blog.js"></script>
+<script src="js/create_blog.js"></script>
 <script src="js/rte_cust.js"></script>
 </body>
 </html>
