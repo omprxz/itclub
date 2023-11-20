@@ -1,4 +1,4 @@
- <meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <style>
@@ -176,26 +176,26 @@
 <div class="progress-bar"></div>
 <section class="header">
     <div class="topBar">
-      <span class="topBarLabel"><a href="index.php"><img src="img/itclublogo.webp" alt="IT Club"><span> IT Club</span></a></span>
+      <span class="topBarLabel"><a href="../index.php"><img src="../img/itclublogo.webp" alt="IT Club"><span> IT Club</span></a></span>
       <span class="topBarToggler"><i class="fa fa-bars bars"></i></span>
 
       <div class="topBarMenuLG">
-        <a href="/">Home</a>
-        <a href="ourevents.php">Events</a>
-        <a href="allnotices.php">Notices</a>
-        <a href="members.php">Members</a>
-        <a href="result.php">Check Result</a>
+        <a href="../">Home</a>
+        <a href="../ourevents.php">Events</a>
+        <a href="../allnotices.php">Notices</a>
+        <a href="../members.php">Members</a>
+        <a href="../result.php">Check Result</a>
       </div>
     </div>
     <div class="topBarMenu">
       <ul class="topBarMenu_List">
-        <li class="animate__animated"><a href="/">Home</a></li>
-        <li class="animate__animated"><a href="allnotice.php">Notices</a></li>
-        <li class="animate__animated"><a href="ourevents.php">Events</a></li>
-        <li class="animate__animated"><a href="members.php">Members</a></li>
-        <li class="animate__animated"><a href="#contact">Contact</a></li>
-        <li class="animate__animated"><a href="result.php">Check Result</a></li>
-        <li class="animate__animated"><a href="admin/">Admin Panel</a></li>
+        <li class="animate__animated"><a href="../">Home</a></li>
+        <li class="animate__animated"><a href="../allnotice.php">Notices</a></li>
+        <li class="animate__animated"><a href="../ourevents.php">Events</a></li>
+        <li class="animate__animated"><a href="../members.php">Members</a></li>
+        <li class="animate__animated"><a href="../#contact">Contact</a></li>
+        <li class="animate__animated"><a href="../result.php">Check Result</a></li>
+        <li class="animate__animated"><a href="../admin/">Admin Panel</a></li>
       </ul>
         <!-- <p class="createdby"><i class="fas fa-signature"></i> Created by Omprakash Kumar</p> -->
     </div>
@@ -241,7 +241,7 @@ function  set_elem(elem,total) {
 
 $(document).ready(function() {
   $.ajax({
-    url:'action/stats.php',
+    url:'../action/stats.php',
     type:'post',
     dataType:'json',
     data:'stat=true',
