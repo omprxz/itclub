@@ -2,8 +2,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <style>
-/* PROGRESS BAR STARTS */
-.progress-bar{
+  /* PROGRESS BAR STARTS */
+  .progress-bar{
   position: fixed;
   top: 0;
   left: 0;
@@ -12,24 +12,25 @@
   z-index: 1002;
   border-radius: 0 2px 2px 0;
   width: 0%;
-}
-/* PROGRESS BAR ENDS */
-.header{
-  background: #000000e7;
-  color: white;
+  }
+  /* PROGRESS BAR ENDS */
+  .header{
+  background: #090f1c;
+  color: #B9E0F2;
   overflow: hidden;
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 1001;
-}
-.createdby{
+  transition: all 0.1s;
+  }
+  .createdby{
   color: #747474;
   text-align: center;
   margin-top: 5px;
   margin-bottom: 10px;
-}
-.topBar{
+  }
+  .topBar{
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -37,99 +38,103 @@
   padding: 5px 10px;
   height:40px;
   overflow:hidden;
-}
-.topBarLabel{
-    left:-10px;
-    font-size:25px;
-    padding-top: 0;
-}
-.topBarLabel a{
+  }
+  .topBarLabel{
+  left:-10px;
+  font-size:25px;
+  padding-top: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  }
+  .topBarLabel a{
   display: flex;
   align-items: center;
-}
-.topBarLabel a span{
+  font-family: Mokuta;
+  }
+  .topBarLabel a span{
   position: relative;
-  top: 3px;
-  font-size: 25px;
-  font-weight: bold;
+  font-size: 26px;
+  font-weight: 500;
   margin-left: 5px;
-   animation: slideInFromRight 1.2s ease-in-out;
-}
-.topBarLabel a img{
+  animation: slideInFromRight 1.2s ease-in-out;
+  }
+  .topBarLabel a img{
   display: inline;
   width: 35px;
   max-height: 35px;
   position: relative;
   height: 60px;
-  
   border-radius: 50%;
   animation: scaleUp 1.2s ease-out;
-}
-@keyframes slideInFromRight {
+  }
+  @keyframes slideInFromRight {
   0% {
-    opacity: 0;
-    transform: translateX(25%);
+  opacity: 0;
+  transform: translateX(25%);
   }
   100% {
-    opacity: 1;
-    transform: translateX(0);
+  opacity: 1;
+  transform: translateX(0);
   }
-}
-@keyframes scaleUp {
+  }
+  @keyframes scaleUp {
   0% {
-    opacity: 0;
-    transform: scale(55%);
+  opacity: 0;
+  transform: scale(55%);
   }
   100% {
-    opacity: 1;
-    transform: scale(100%);
-    margin: 0;
+  opacity: 1;
+  transform: scale(100%);
+  margin: 0;
   }
-}
-
-
-.topBarLabel a{
+  }
+  .topBarLabel a{
   text-decoration: none;
-  color: var(--six-color);
-}
-.topBarToggler{
+  color: #B9E0F2;
+  }
+  .topBarToggler{
   font-size: 28px;
   cursor: pointer;
-}
-.topBarMenuLG{
+  }
+  .topBarSearch{
+  font-size: 23px;
+  cursor: pointer;
+  }
+  .topBarMenuLG{
   display: none;
   flex-direction: row;
   gap: 20px;
-}
-.topBarMenuLG a{
+  }
+  .topBarMenuLG a{
   font-size: 17px !important;
-}
-.topBarMenuLG a:hover{
+  }
+  .topBarMenuLG a:hover{
   text-shadow: #02B152 4px 4px 10px;
-}
-.topBarMenu{
+  }
+  .topBarMenu{
   text-align: center;
   padding-bottom: 1px;
   display: none;
-}
-.topBarMenu_List{
+  }
+  .topBarMenu_List{
   text-align: center;
   list-style: none;
   padding-left: 0;
-}
-.topBarMenu_List li a, .topBarMenuLG a{
+  }
+  .topBarMenu_List li a, .topBarMenuLG a{
   cursor: pointer;
   position: relative;
   text-decoration: none;
   color: rgb(201, 201, 201);
   font-size: 20px;
-  line-height: 45px;
+  line-height: 3;
   padding-bottom: 4px;
-}
-.topBarMenu_List li a:hover,.topBarMenuLG a:hover{
+  }
+  .topBarMenu_List li a:hover,.topBarMenuLG a:hover{
   color: white;
-}
-.topBarMenu_List li a::before,.topBarMenuLG a::before  {
+  }
+  .topBarMenu_List li a::before,.topBarMenuLG a::before  {
   content: "";
   position: absolute;
   bottom: 0;
@@ -137,132 +142,262 @@
   height: 2px;
   background-color: white;
   transition: width 0.3s;
-}
-.topBarMenu_List li:nth-child(odd) a::before {
+  }
+  .topBarMenu_List li:nth-child(odd) a::before {
   left: 0;
-}
-.topBarMenu_List li:nth-child(even) a::before {
+  }
+  .topBarMenu_List li:nth-child(even) a::before {
   right: 0;
-}
-.topBarMenu_List li a:hover::before, .topBarMenuLG a:hover::before{
+  }
+  .topBarMenu_List li a:hover::before, .topBarMenuLG a:hover::before{
   width: 100%;
-}
-.bars{
+  }
+  .bars{
   transition: 0.5s;
-}
-.barsToggle{
+  }
+  .barsToggle{
   transform: rotate(-90deg);
   display: none;
-}
-.timesToggle{
+  }
+  .timesToggle{
   transform: rotate(90deg);
   display: block;
-}
-
-@media (min-width:1024px){
+  }
+  .topBarSearchDiv{
+  display: none;
+  }
+  .topBarSearchBar{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 10px auto;
+  gap: 5px;
+  }
+  .topBarsearchText{
+  background: transparent;
+  width: 100%;
+  color: white;
+  outline: 0;
+  box-sizing: border-box;
+  border: 1px solid #222F43;
+  border-radius: 4px;
+  padding-left: 10px;
+  height: 40px;
+  }
+  .topBarsearchText::placeholder{
+  color: #66768f;
+  }
+  .topBarsearchBtn{
+  outline: 0;
+  border: 0;
+  box-sizing: border-box;
+  border: 1px solid #222F43;
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  color: white;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 700;
+  }
+  @media (min-width:1024px){
   .topBarToggler{
-    display: none;
+  display: none;
   }
   .topBarMenuLG{
-    display: flex;
+  display: flex;
   }
   .topBar{
-    padding-left: 20px;
-    padding-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
   }
-}
+  }
+  .topBarSearchList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px 15px 15px 15px;
+    color: #B9E0F2;
+  }
+  .topBarSearchItem{
+    color: #B9E0F2;
+    text-decoration: none;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #222F43;
+  }
+  .topBarSearchTitle{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .topBarSearchType{
+    padding: 3px 5px;
+    font-size: 13px;
+    background: #152341;
+    border-radius: 5px;
+    display: inline-block;
+    text-transform: uppercase;
+  }
 </style>
 
 <div class="progress-bar"></div>
 <section class="header">
-    <div class="topBar">
-      <span class="topBarLabel"><a href="../index.php"><img src="../img/itclublogo.webp" alt="IT Club"><span> IT Club</span></a></span>
-      <span class="topBarToggler"><i class="fa fa-bars bars"></i></span>
-
-      <div class="topBarMenuLG">
-        <a href="../">Home</a>
-        <a href="../ourevents.php">Events</a>
-        <a href="../allnotices.php">Notices</a>
-        <a href="../members.php">Members</a>
-        <a href="../result.php">Check Result</a>
-      </div>
+  <div class="topBar">
+    <span class="topBarSearch"><i class="fas fa-search"></i></span>
+    <span class="topBarLabel"><a href="../index.php"><img src="../img/itclublogo.webp" alt="IT Club"><span> Blogs</span></a></span>
+    <span class="topBarToggler"><i class="fa fa-bars bars"></i></span>
+    <div class="topBarMenuLG">
+      <a href="../">Home</a>
+      <a href="../ourevents.php">Events</a>
+      <a href="../allnotices.php">Notices</a>
+      <a href="../members.php">Members</a>
+      <a href="../result.php">Check Result</a>
+      <a href="../blogs/">Blogs</a>
     </div>
-    <div class="topBarMenu">
-      <ul class="topBarMenu_List">
-        <li class="animate__animated"><a href="../">Home</a></li>
-        <li class="animate__animated"><a href="../allnotice.php">Notices</a></li>
-        <li class="animate__animated"><a href="../ourevents.php">Events</a></li>
-        <li class="animate__animated"><a href="../members.php">Members</a></li>
-        <li class="animate__animated"><a href="../#contact">Contact</a></li>
-        <li class="animate__animated"><a href="../result.php">Check Result</a></li>
-        <li class="animate__animated"><a href="../admin/">Admin Panel</a></li>
-      </ul>
-        <!-- <p class="createdby"><i class="fas fa-signature"></i> Created by Omprakash Kumar</p> -->
+  </div>
+  <div class="topBarMenu">
+    <ul class="topBarMenu_List">
+      <li class="animate__animated"><a href="../">Home</a></li>
+      <li class="animate__animated"><a href="../blogs/">Blogs</a></li>
+      <li class="animate__animated"><a href="../allnotice.php">Notices</a></li>
+      <li class="animate__animated"><a href="../ourevents.php">Events</a></li>
+      <li class="animate__animated"><a href="../members.php">Members</a></li>
+      <li class="animate__animated"><a href="#contact">Contact</a></li>
+      <li class="animate__animated"><a href="../result.php">Check Result</a></li>
+      <li class="animate__animated"><a href="../admin/">Admin Panel</a></li>
+    </ul>
+    <!-- <p class="createdby"><i class="fas fa-signature"></i> Created by Omprakash Kumar</p> -->
+  </div>
+  <div class="topBarSearchDiv">
+    <div class="topBarsearchBar">
+      <input type="text" class="topBarsearchText" placeholder="Search">
+      <button class="topBarsearchBtn">
+      <i class="fas fa-search"></i>
+      </button>
     </div>
-  </section>
+    <div class="topBarSearchList">
+      <p style="text-align:center;">Search any blogs, events, notices, etc</p>
+    </div>
+  </div>
+</section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-// PROGRESS BAR STARTS
-var pg=0; //progress bar width initially
-document.onreadystatechange = function()
-{
-  if(document.readyState=="interactive")
+  // PROGRESS BAR STARTS
+  var pg=0; //progress bar width initially
+  document.onreadystatechange = function()
   {
-    var allElem = $("*");
-    var length = allElem.length;
-    console.log(allElem)
-    for(var i=0;i<length;i++) {
-      set_elem(allElem[i],length);
+    if(document.readyState=="interactive")
+    {
+      var allElem = $("*");
+      var length = allElem.length;
+      for(var i=0;i<length;i++) {
+        set_elem(allElem[i],length);
+      }
     }
   }
-}
-function  set_elem(elem,total) {
-  var percent_inc = 100 / total; //equally divide 100 among all elements
-  
-//if element is loaded
-  if($(elem).length==1) {
-    $('.progress-bar').animate({width:pg+percent_inc+"%"},10,function(){
-      if($('.progress-bar').css('width')>"99%") {
-        //hide the bar
-        $('.progress-bar').css('border-radius:0;')
-        $('.progress-bar').slideUp(500);
-        $('.progress-bar').fadeOut(500);
-      }
-    });
-    //update the previous width value 
-    pg = pg+percent_inc;
+  function  set_elem(elem,total) {
+    var percent_inc = 100 / total; //equally divide 100 among all elements
+    
+  //if element is loaded
+    if($(elem).length==1) {
+      $('.progress-bar').animate({width:pg+percent_inc+"%"},10,function(){
+        if($('.progress-bar').css('width')>"99%") {
+          //hide the bar
+          $('.progress-bar').css('border-radius:0;')
+          $('.progress-bar').slideUp(500);
+          $('.progress-bar').fadeOut(500);
+        }
+      });
+      //update the previous width value 
+      pg = pg+percent_inc;
+    }
   }
-}
-// PROGRESS BAR ENDS
-
+  // PROGRESS BAR ENDS
+  
 </script>
 <script>
-
-$(document).ready(function() {
-  $.ajax({
-    url:'../action/stats.php',
-    type:'post',
-    dataType:'json',
-    data:'stat=true',
-    success:function(stats){
-      console.log(stats)
-    }
+  $(document).ready(function() {
+    $.ajax({
+      url:'../action/stats.php',
+      type:'post',
+      dataType:'json',
+      data:'stat=true',
+      success:function(stats){
+      }
+    })
+    $(".topBarMenu_List li:odd").addClass("menuItem_left animate__fadeOutRight");
+    $(".topBarMenu_List li:even").addClass("menuItem_right animate__fadeOutLeft");
+  });
+  
+    $('.topBarToggler').click(function () {
+    $('.topBarMenu').slideToggle('slow')
+    $('.topBarToggler i').toggleClass('fa-bars')
+    $('.topBarToggler i').toggleClass('fa-times')
+    $('.bars').toggleClass('barsToggle')
+    $('.bars').toggleClass('timesToggle')
+    $('.menuItem_left').toggleClass('animate__fadeInLeft')
+    $('.menuItem_left').toggleClass('animate__fadeOutRight')
+    $('.menuItem_right').toggleClass('animate__fadeInRight')
+    $('.menuItem_right').toggleClass('animate__fadeOutLeft')
   })
   
-  $(".topBarMenu_List li:odd").addClass("menuItem_left animate__fadeOutRight");
-  $(".topBarMenu_List li:even").addClass("menuItem_right animate__fadeOutLeft");
-});
-
-    $('.topBarToggler').click(function () {
-  $('.topBarMenu').slideToggle('slow')
-  $('.topBarToggler i').toggleClass('fa-bars')
-  $('.topBarToggler i').toggleClass('fa-times')
-  $('.bars').toggleClass('barsToggle')
-  $('.bars').toggleClass('timesToggle')
-  $('.menuItem_left').toggleClass('animate__fadeInLeft')
-  $('.menuItem_left').toggleClass('animate__fadeOutRight')
-  $('.menuItem_right').toggleClass('animate__fadeInRight')
-  $('.menuItem_right').toggleClass('animate__fadeOutLeft')
-})
+      $('.topBarSearch').click(function (){
+        $('.topBarsearchDiv').slideToggle()
+        $('.topBarsearchText').focus()
+      })
+      $('.topBarsearchBtn').click(function(){
+        window.location.href = 'search.php?query='+$('.topBarsearchText').val();
+      })
+</script>
+<script>
+let inputTimer;
+  $('.topBarsearchText').on('input',function(){
+    let queryVal = $(this).val()
+    clearTimeout(inputTimer);
+    if($(this).val().length>=3){
+    inputTimer = setTimeout(function(){
+      $.ajax({
+        url:'../action/get_searches.php',
+        type:'get',
+        dataType:'json',
+        data:{query: $('.topBarsearchText').val(), type:'blog'},
+        beforeSend:function(){
+          $('.topBarSearchList').html('<p style="text-align:center;">Searching...</p>')
+        },
+        success:function(data){
+          console.log(data)
+          if(data['status']=='empty'){
+            $('.topBarSearchList').html('<p style="text-align:center;">No Results.</p>')
+          }else if(data['status']=='success'){
+            q=data['results'];
+            $('.topBarSearchList').html('')
+            if(q.length<5){
+              itemsCount=q.length
+            }else{
+              itemsCount=5
+            }
+            for(let i=0;i<itemsCount;i++){
+            listHtml = `
+    <a class="topBarSearchItem" href="${q[i]['url']}">
+       <span class="topBarSearchTitle">${q[i]['title']}</span>
+       <span class="topBarSearchType">${q[i]['type']}</span>
+   </a>
+            `;
+            $('.topBarSearchList').append(listHtml);
+            }
+          }else{
+            $('.topBarSearchList').html('<p style="text-align:center;color:#ff0;">Failed to fetch.</p>')
+          }
+        }
+      })
+    },500)
+  }
+    else{
+      $('.topBarSearchList').html('<p style="text-align:center;">Search any blogs, events, notices, etc</p>')
+    }
+    })
 </script>

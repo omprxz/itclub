@@ -32,7 +32,6 @@ $(document).ready(function() {
     data: urlParams,
     dataType: 'json',
     success: function(fetchedBlog) {
-      console.log(fetchedBlog)
       if(fetchedBlog['status']=='success'){
       id = retVar(fetchedBlog['id']);
       pubTime = retVar(fetchedBlog['publishTime']);
@@ -184,6 +183,16 @@ $(".updateBlog").on('click', function() {
   validateForm()
   if (isValid && contentEditor.getHTMLCode() != "") {
     event.preventDefault();
+    let scheduledDateTime = new Date($(".sTime").val());
+    let currentDateTime = new Date();
+
+    if ($('.visibility').val() == 'schedule' && scheduledDateTime <= currentDateTime) {
+      Toast.fire({
+        icon: 'error',
+        title: 'Scheduled time should be in the future.',
+        timer: 2000
+      });
+     } else {
     let blogData = new FormData(document.getElementById('blogForm'))
     blogData.append('tags', tags)
     blogData.append('sameThumbnail',sameThumbnail)
@@ -191,7 +200,6 @@ $(".updateBlog").on('click', function() {
     blogData.append('pubTime',pubTime)
     blogData.append('thumbnailUrl',thumbnailUrl)
     blogData.append('content', contentEditor.getHTMLCode())
-    console.log(...blogData);
     let updateInt;
     $.ajax({
       url: '../blog/editblog_action.php',
@@ -235,8 +243,6 @@ $(".updateBlog").on('click', function() {
         clearInterval(updateInt)
       },
       success: function(data) {
-        console.log(data);
-
         if (data['status'] == 'success') {
           $('.updateBlog').text('Updated')
             Toast.fire({
@@ -264,7 +270,8 @@ $(".updateBlog").on('click', function() {
           $('.updateBlog').text('Update Blog')}, 500);
         // Handle error cases
       }
-    });
+    })
+     }
   } else {
     Toast.fire({
       icon: 'error',

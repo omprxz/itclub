@@ -16,12 +16,13 @@
 /* PROGRESS BAR ENDS */
 .header{
   background: #000000e7;
-  color: white;
+  color: #B9E0F2;
   overflow: hidden;
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 1001;
+  transition: all 0.1s;
 }
 .createdby{
   color: #747474;
@@ -42,6 +43,9 @@
     left:-10px;
     font-size:25px;
     padding-top: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .topBarLabel a{
   display: flex;
@@ -50,10 +54,10 @@
 .topBarLabel a span{
   position: relative;
   top: 3px;
-  font-size: 25px;
-  font-weight: bold;
+  font-size: 26px;
+  font-weight: 500;
   margin-left: 5px;
-   animation: slideInFromRight 1.2s ease-in-out;
+  animation: slideInFromRight 1.2s ease-in-out;
 }
 .topBarLabel a img{
   display: inline;
@@ -90,10 +94,14 @@
 
 .topBarLabel a{
   text-decoration: none;
-  color: var(--six-color);
+  color: #B9E0F2;
 }
 .topBarToggler{
   font-size: 28px;
+  cursor: pointer;
+}
+.topBarSearch{
+  font-size: 23px;
   cursor: pointer;
 }
 .topBarMenuLG{
@@ -123,7 +131,7 @@
   text-decoration: none;
   color: rgb(201, 201, 201);
   font-size: 20px;
-  line-height: 45px;
+  line-height: 3;
   padding-bottom: 4px;
 }
 .topBarMenu_List li a:hover,.topBarMenuLG a:hover{
@@ -158,6 +166,45 @@
   transform: rotate(90deg);
   display: block;
 }
+.topBarSearchDiv{
+  display: none;
+}
+.topBarSearchBar{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 10px auto;
+  gap: 5px;
+}
+.topBarsearchText{
+  background: transparent;
+  width: 100%;
+  color: white;
+  outline: 0;
+  box-sizing: border-box;
+  border: 1px solid #222F43;
+  border-radius: 4px;
+  padding-left: 10px;
+  height: 40px;
+}
+.topBarsearchText::placeholder{
+  color: #66768f;
+}
+.topBarsearchBtn{
+  outline: 0;
+  border: 0;
+  box-sizing: border-box;
+  border: 1px solid #222F43;
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  color: white;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 700;
+}
 
 @media (min-width:1024px){
   .topBarToggler{
@@ -171,11 +218,40 @@
     padding-right: 20px;
   }
 }
+  .topBarSearchList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 15px 15px 15px;
+    color: #B9E0F2;
+  }
+  .topBarSearchItem{
+    color: #B9E0F2;
+    text-decoration: none;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #222F43;
+  }
+  .topBarSearchTitle{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .topBarSearchType{
+    padding: 3px 5px;
+    font-size: 13px;
+    background: #152341;
+    border-radius: 5px;
+    display: inline-block;
+    text-transform: uppercase;
+  }
+
 </style>
 
 <div class="progress-bar"></div>
 <section class="header">
     <div class="topBar">
+      <span class="topBarSearch"><i class="fas fa-search"></i></span>
       <span class="topBarLabel"><a href="index.php"><img src="img/itclublogo.webp" alt="IT Club"><span> IT Club</span></a></span>
       <span class="topBarToggler"><i class="fa fa-bars bars"></i></span>
 
@@ -184,12 +260,14 @@
         <a href="ourevents.php">Events</a>
         <a href="allnotices.php">Notices</a>
         <a href="members.php">Members</a>
+        <a href="blogs/">Blogs</a>
         <a href="result.php">Check Result</a>
       </div>
     </div>
     <div class="topBarMenu">
       <ul class="topBarMenu_List">
         <li class="animate__animated"><a href="/">Home</a></li>
+        <li class="animate__animated"><a href="blogs/">Blogs</a></li>
         <li class="animate__animated"><a href="allnotice.php">Notices</a></li>
         <li class="animate__animated"><a href="ourevents.php">Events</a></li>
         <li class="animate__animated"><a href="members.php">Members</a></li>
@@ -199,7 +277,18 @@
       </ul>
         <!-- <p class="createdby"><i class="fas fa-signature"></i> Created by Omprakash Kumar</p> -->
     </div>
-  </section>
+    <div class="topBarSearchDiv">
+      <div class="topBarsearchBar">
+        <input type="text" class="topBarsearchText" placeholder="Search">
+        <button class="topBarsearchBtn">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <div class="topBarSearchList">
+        <p style="text-align:center;">Search any blogs, events, notices, etc</p>
+    </div>
+    </div>
+</section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
@@ -211,7 +300,6 @@ document.onreadystatechange = function()
   {
     var allElem = $("*");
     var length = allElem.length;
-    console.log(allElem)
     for(var i=0;i<length;i++) {
       set_elem(allElem[i],length);
     }
@@ -246,7 +334,6 @@ $(document).ready(function() {
     dataType:'json',
     data:'stat=true',
     success:function(stats){
-      console.log(stats)
     }
   })
   
@@ -265,4 +352,60 @@ $(document).ready(function() {
   $('.menuItem_right').toggleClass('animate__fadeInRight')
   $('.menuItem_right').toggleClass('animate__fadeOutLeft')
 })
+
+ $('.topBarSearch').click(function (){
+      $('.topBarsearchDiv').slideToggle()
+      $('.topBarsearchText').focus()
+  })
+$('.topBarsearchBtn').click(function(){
+      window.location.href = '../search.php?query='+$('.topBarsearchText').val();
+    })
+</script>
+<script>
+let inputTimer;
+  $('.topBarsearchText').on('input',function(){
+    let queryVal = $(this).val()
+    clearTimeout(inputTimer);
+    if($(this).val().length>=3){
+    inputTimer = setTimeout(function(){
+      $.ajax({
+        url:'../action/get_searches.php',
+        type:'get',
+        dataType:'json',
+        data:{query: $('.topBarsearchText').val(), type:'all'},
+        beforeSend:function(){
+          $('.topBarSearchList').html('<p style="text-align:center;">Searching...</p>')
+        },
+        success:function(data){
+          console.log(data)
+          if(data['status']=='empty'){
+            $('.topBarSearchList').html('<p style="text-align:center;">No Results.</p>')
+          }else if(data['status']=='success'){
+            q=data['results'];
+            $('.topBarSearchList').html('')
+            if(q.length<5){
+              itemsCount=q.length
+            }else{
+              itemsCount=5
+            }
+            for(let i=0;i<itemsCount;i++){
+            listHtml = `
+    <a class="topBarSearchItem" href="${q[i]['url']}">
+       <span class="topBarSearchTitle">${q[i]['title']}</span>
+       <span class="topBarSearchType">${q[i]['type']}</span>
+   </a>
+            `;
+            $('.topBarSearchList').append(listHtml);
+            }
+          }else{
+            $('.topBarSearchList').html('<p style="text-align:center;color:#ff0;">Failed to fetch.</p>')
+          }
+        }
+      })
+    },500)
+  }
+    else{
+      $('.topBarSearchList').html('<p style="text-align:center;">Search any blogs, events, notices, etc</p>')
+    }
+    })
 </script>

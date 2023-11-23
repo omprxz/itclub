@@ -1,10 +1,12 @@
 let tags = [], tag;
-
 const now = new Date();
-const optionsDate = { timeZone: 'Asia/Kolkata' };
-
-function formattedDate(dt){
-  let formattedDateNow = dt.toLocaleString('sv', { ...optionsDate, hour12: false }).replace(' ', 'T');
+const optionsDate = {
+  timeZone: 'Asia/Kolkata'
+};
+function formattedDate(dt) {
+  let formattedDateNow = dt.toLocaleString('sv', {
+    ...optionsDate, hour12: false
+  }).replace(' ', 'T');
   return formattedDateNow;
 }
 $('.sTime').val(formattedDate(now))
@@ -23,7 +25,7 @@ const Toast = Swal.mixin({
   }
 })
 
-$(".thumbnail").on("change",function(event){
+$(".thumbnail").on("change", function(event) {
   const file = event.target.files[0];
   const image = $('.thumbnail-prev');
 
@@ -33,9 +35,9 @@ $(".thumbnail").on("change",function(event){
   };
 
   reader.readAsDataURL(file);
-  
-  $('.thumbnail-prev').on('error',function(){
-  $(".thumbnail-prev").attr('src','../../blogs/thumbnails/thumbnail.png');
+
+  $('.thumbnail-prev').on('error', function() {
+    $(".thumbnail-prev").attr('src', '../../blogs/thumbnails/thumbnail.png');
   })
 })
 
@@ -44,13 +46,13 @@ if (!$(".tagList").find('span').length) {
 }
 
 $(".tagList").on('click', 'span i', function() {
-    $(this).parent().remove()
+  $(this).parent().remove()
 
-    tags.splice(tags.indexOf($(this).parent().text()), 1)
-    if (!$(".tagList").find('span').length) {
-      $(".tagList").html('<p class="notags">No tags</p>')
-    }
-  })
+  tags.splice(tags.indexOf($(this).parent().text()), 1)
+  if (!$(".tagList").find('span').length) {
+    $(".tagList").html('<p class="notags">No tags</p>')
+  }
+})
 
 $(".addTag").on('click', function() {
   tag = $(".inpTag").val().trim()
@@ -66,15 +68,15 @@ $(".addTag").on('click', function() {
     } else {
       if (tags.includes(tagArr[i].trim())) {
         Toast.fire({
-          icon:'warning',
-          title:'Duplicate tags',
-          timer:2000
+          icon: 'warning',
+          title: 'Duplicate tags',
+          timer: 2000
         })
       } else if (tagArr[i].trim() == "") {
         Toast.fire({
-          icon:'error',
-          title:'Empty tag',
-          timer:2000
+          icon: 'error',
+          title: 'Empty tag',
+          timer: 2000
         })
       }
     }
@@ -83,11 +85,11 @@ $(".addTag").on('click', function() {
   $(".inpTag").focus()
 })
 
-$(".visibility").on("change",function(){
-  if($(this).val()=='schedule'){
-    $('.input-sTime').css('display','flex');
-  }else{
-    $('.input-sTime').css('display','none');
+$(".visibility").on("change", function() {
+  if ($(this).val() == 'schedule') {
+    $('.input-sTime').css('display', 'flex');
+  } else {
+    $('.input-sTime').css('display', 'none');
   }
 })
 
@@ -100,111 +102,126 @@ function validateForm() {
 
     if (element.hasAttribute("required") && element.value.trim() === "") {
       isValid = false;
-    }else{
+    } else {
       isValid = true;
     }
   }
   return isValid;
-  }
-$(".createBlog").on('click',function(){
-validateForm()
-if(isValid && contentEditor.getHTMLCode() != ""){
-  event.preventDefault();
-  let blogData=new FormData(document.getElementById('blogForm'))
-  blogData.append('tags',tags)
-  blogData.append('content',contentEditor.getHTMLCode())
-  console.log(blogData);
-  let createInt;
-   $.ajax({
-    url: '../blog/createblog_action.php',
-    type: 'POST',
-    data: blogData,
-    dataType: 'json',
-    processData: false,
-    contentType: false,
-    beforeSend:function(){
-      let dot=1;
-      function creating(){
-        if(dot==1){
-          $('.createBlog').text('Creating.')
-        }else if(dot==2){
-          $('.createBlog').text('Creating..')
-        }else{
-          $('.createBlog').text('Creating...')
-          dot=0;
-        }
-        dot++
-        return dot;
-      }
-       createInt = setInterval(creating, 500);
-    },
-    xhr: function() {
-      const xhr = new window.XMLHttpRequest();
-      
-      xhr.upload.addEventListener('progress', function(e) {
-        if (e.lengthComputable) {
-          const percentComplete = (e.loaded / e.total) * 100;
-          $('.uploadStatus').show()
-          $('.uploadStatus').val(percentComplete);
-        }
-      }, false);
-
-      return xhr;
-    },
-    complete: function(){
-      $('.uploadStatus').hide()
-      clearInterval(createInt)
-    },
-    success: function(data) {
-      console.log(data);
-      
-      if(data['status']=='success'){
-      $('.createBlog').text('Created')
-      if($('.visibility').val()=='public'){
-        Toast.fire({
-          icon:'success',
-          title:data['result']})
-      }else if($('.visibility').val()=='schedule'){
-        Toast.fire({
-          icon:'success',
-          title:data['result']})
-      }else{
-        Toast.fire({
-          icon:'info',
-          title:data['result']})
-      }
-      }else{
-        Toast.fire({
-          icon:'error',
-          title:data['result']
-        })
-        
-      }
-      
-      setTimeout(function() {$('.createBlog').text('Create Blog')}, 500);
-    },
-    error: function(error) {
-      console.error('Error during upload:', error);
-      Toast.fire({
-          icon:'error',
-          title:'Something went wrong!. Sorry.'})
-      $('.createBlog').text('ERROR !')
-      setTimeout(function() {$('.createBlog').text('Create Blog')}, 500);
-      // Handle error cases
-    }
-  });
-}else{
-  Toast.fire({
-    icon:'error',
-    title:'Some required fields missing!'
-  })
-  if($(".title").val()==""){
-    $(".title").focus()
-  }else if(contentEditor.getHTMLCode()==""){
-    contentEditor.focus()
-  }else{
-    console.log("Some required fields mandatory");
-  }
 }
-})
-  
+
+$(".createBlog").on('click', function() {
+  validateForm()
+  if (isValid && contentEditor.getHTMLCode() != "") {
+    event.preventDefault();
+    let scheduledDateTime = new Date($(".sTime").val());
+    let currentDateTime = new Date();
+
+    if ($('.visibility').val() === 'schedule' && scheduledDateTime <= currentDateTime) {
+      Toast.fire({
+        icon: 'error',
+        title: 'Scheduled time should be in the future.',
+        timer: 2000
+      });
+     } else {
+      let blogData = new FormData(document.getElementById('blogForm'))
+      blogData.append('tags', tags)
+      blogData.append('content', contentEditor.getHTMLCode())
+      console.log(blogData);
+      let createInt;
+      $.ajax({
+        url: '../blog/createblog_action.php',
+        type: 'POST',
+        data: blogData,
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        beforeSend: function() {
+          let dot = 1;
+          function creating() {
+            if (dot == 1) {
+              $('.createBlog').text('Creating.')
+            } else if (dot == 2) {
+              $('.createBlog').text('Creating..')
+            } else {
+              $('.createBlog').text('Creating...')
+              dot = 0;
+            }
+            dot++
+            return dot;
+          }
+          createInt = setInterval(creating, 500);
+        },
+        xhr: function() {
+          const xhr = new window.XMLHttpRequest();
+
+          xhr.upload.addEventListener('progress', function(e) {
+            if (e.lengthComputable) {
+              const percentComplete = (e.loaded / e.total) * 100;
+              $('.uploadStatus').show()
+              $('.uploadStatus').val(percentComplete);
+            }
+          },
+            false);
+
+          return xhr;
+        },
+        complete: function() {
+          $('.uploadStatus').hide()
+          clearInterval(createInt)
+        },
+        success: function(data) {
+          console.log(data);
+
+          if (data['status'] == 'success') {
+            $('.createBlog').text('Created')
+            if ($('.visibility').val() == 'public') {
+              Toast.fire({
+                icon: 'success',
+                title: data['result']})
+            } else if ($('.visibility').val() == 'schedule') {
+              Toast.fire({
+                icon: 'success',
+                title: data['result']})
+            } else {
+              Toast.fire({
+                icon: 'info',
+                title: data['result']})
+            }
+          } else {
+            Toast.fire({
+              icon: 'error',
+              title: data['result']
+            })
+
+          }
+
+          setTimeout(function() {
+            $('.createBlog').text('Create Blog')}, 500);
+        },
+        error: function(error) {
+          console.error('Error during upload:', error);
+          Toast.fire({
+            icon: 'error',
+            title: 'Something went wrong!. Sorry.'
+          })
+          $('.createBlog').text('ERROR !')
+          setTimeout(function() {
+            $('.createBlog').text('Create Blog')}, 500);
+          // Handle error cases
+        }
+      })
+      }
+    } else {
+      Toast.fire({
+        icon: 'error',
+        title: 'Some required fields missing!'
+      })
+      if ($(".title").val() == "") {
+        $(".title").focus()
+      } else if (contentEditor.getHTMLCode() == "") {
+        contentEditor.focus()
+      } else {
+        console.log("Some required fields mandatory");
+      }
+    }
+  })

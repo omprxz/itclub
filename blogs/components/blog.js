@@ -23,7 +23,6 @@ $('.blog-suggestion-controls button').on('click', function() {
     $(targetDiv).addClass('active').css('left', '0').animate({ 'opacity': 1 }, 500);
   }
 });
-
 function adjustSuggestionsHeight(tar,pad) {
  h = $(tar).height()
  $('.blog-suggestions').animate({
@@ -88,17 +87,17 @@ $(document).ready(function(){
         $('.popular-blogs').html('<div class="emptySuggestion"><p>No popular blog.</p></div>');
       }
       
-      adjustSuggestionsHeight($('.blog-suggestions .active'),50)
+      adjustSuggestionsHeight($('.blog-suggestions .active'),20)
       
       $('.blog-suggestion-controls button').on('click', function() {
         if($(this).hasClass('suggest-related')){
-        adjustSuggestionsHeight('.related-blogs',50)
+        adjustSuggestionsHeight('.related-blogs',20)
         }
         else if($(this).hasClass('suggest-byauthor')){
-        adjustSuggestionsHeight('.byauthor-blogs',50)
+        adjustSuggestionsHeight('.byauthor-blogs',20)
         }
         else if($(this).hasClass('suggest-popular')){
-        adjustSuggestionsHeight('.popular-blogs',50)
+        adjustSuggestionsHeight('.popular-blogs',20)
         }
       })
     },
@@ -109,10 +108,10 @@ $(document).ready(function(){
  })
 
 // Function to set a cookie
-function setCookie(name, value, days) {
+function setCookie(name, value, days, path = '/') {
   const expires = new Date();
   expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+  document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=${path}`;
 }
 
 // Function to get a cookie value by name
@@ -121,18 +120,16 @@ function getCookie(name) {
   return keyValue ? keyValue[2] : null;
 }
 
-if (!getCookie('like-status')) {
-  setCookie('like-status', 'unliked', 30);
+if (!getCookie('like-status'+blogid)) {
+  setCookie('like-status'+blogid, 'unliked', 30);
 }
 
-if (getCookie('like-status') === 'unliked') {
+if (getCookie('like-status'+blogid) === 'unliked') {
   $('.like').removeClass('liked');
   $('.like i').addClass('far').removeClass('fas');
-  $('.likestatus').text('Like');
-} else if (getCookie('like-status') === 'liked') {
+} else if (getCookie('like-status'+blogid) === 'liked') {
   $('.like').addClass('liked');
   $('.like i').addClass('fas').removeClass('far');
-  $('.likestatus').text('Liked');
 }
 
 $('.like').on('click', function() {
@@ -144,10 +141,9 @@ $('.like').on('click', function() {
       type: 'post',
       data: 'action=unlike&id=' + blogid,
       success: function() {
-        setCookie('like-status', 'unliked', 30);
+        setCookie('like-status'+blogid, 'unliked', 30);
         $('.like i').addClass('far').removeClass('fas');
         $('.like').removeClass('liked');
-        $('.likestatus').text('Like');
         $('.likecount').text(curLike - 1);
       },
       error: function() {
@@ -160,10 +156,9 @@ $('.like').on('click', function() {
       type: 'post',
       data: 'action=like&id=' + blogid,
       success: function() {
-        setCookie('like-status', 'liked', 30);
+        setCookie('like-status'+blogid, 'liked', 30);
         $('.like i').addClass('fas').removeClass('far');
         $('.like').addClass('liked');
-        $('.likestatus').text('Liked');
         $('.likecount').text(curLike + 1);
       },
       error: function() {
@@ -188,4 +183,53 @@ var animateButton = function(e) {
 var classname = document.getElementsByClassName("confetti-button");
 for (var i = 0; i < classname.length; i++) {
   classname[i].addEventListener('click', animateButton, false);
+}
+
+$('.news-btn').on('click', function() {
+    var name = $('.news-name').val();
+    var email = $('.news-email').val();
+    var messageElement = $('.news-msg');
+    
+    if(name==''){
+      messageElement.text('Please enter a valid name.')
+      $('.news-msg').addClass('news-msg-error')
+      $('.news-msg').removeClass('news-msg-success')
+      return;
+    }
+    
+    if (!isValidEmail(email)) {
+      messageElement.text('Please enter a valid email address.');
+      $('.news-msg').addClass('news-msg-error')
+           $('.news-msg').removeClass('news-msg-success')
+      return;
+    }
+    
+    $.ajax({
+      type: 'GET',
+      url: 'subscribe.php',
+      data: { name: name, email: email },
+      success: function(response) {
+        if (response === 'duplicate') {
+          messageElement.text('Email already subscribed.');
+          $('.news-msg').addClass('news-msg-error')
+           $('.news-msg').removeClass('news-msg-success')
+        } else if (response === 'success') {
+          messageElement.text('Subscription successful!');
+          $('.news-msg').addClass('news-msg-success')
+          $('.news-msg').removeClass('news-msg-error')
+        } else {
+          messageElement.text('Subscription failed.');
+          $('.news-msg').addClass('news-msg-error')
+           $('.news-msg').removeClass('news-msg-success')
+        }
+      },
+      error: function(xhr, status, error) {
+        messageElement.text('Error occurred. Please try again.');
+      }
+    });
+  });
+
+function isValidEmail(email) {
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
 }
