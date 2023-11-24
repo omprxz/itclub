@@ -22,6 +22,33 @@ html{
 .introPara::first-letter{
   font-size: 200%;
 }
+.explore-blog-div{
+  display: flex;
+  justify-content: center;
+  margin: 15px auto;
+  margin-top: 0;
+}
+.explore-blog-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 170px;
+  height: 40px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 10px;
+  background: linear-gradient(to right , #0EA9E8,#0CB4BE);
+  color: white;
+  border: 0;
+  outline: 0;
+  transition: all 0.1s;
+}
+.explore-blog-btn:hover{
+  background: linear-gradient(to left , #0EA9E8,#0CB4BE);
+}
+
 .slideshow-container{
   margin: 10px auto 0 auto;
   border-bottom: 1px solid grey;

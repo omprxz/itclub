@@ -12,8 +12,6 @@ $popular=mysqli_query($mysqli,"select * from blogs where visibility = 'public' A
   <title>Blogs - IT Club</title>
   <link rel="stylesheet" href="components/index.css" type="text/css" media="all" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -42,7 +40,13 @@ $popular=mysqli_query($mysqli,"select * from blogs where visibility = 'public' A
           </div>
           <div class="featured-details-div details-div">
             <div class="featured-title title">
-              <a href="blog.php?blogid=<?php echo $feat['id']; ?>"><?php echo $feat['title']; ?></a>
+              <a href="blog.php?blogid=<?php echo $feat['id']; ?>"><?php 
+              if(strlen($feat['title'])>150){
+                echo substr($feat['title'],0,150)."...";
+              }else{
+                echo $feat['title'];
+              }
+              ?></a>
             </div>
             
             <div class="featured-extrainfo extrainfo">
@@ -91,7 +95,15 @@ $popular=mysqli_query($mysqli,"select * from blogs where visibility = 'public' A
           </div>
           <div class="recent-details-div details-div">
             <div class="recent-title title">
-              <a href="blog.php?blogid=<?php echo $rec['id']; ?>"><?php echo $rec['title']; ?></a>
+              <a href="blog.php?blogid=<?php echo $rec['id']; ?>">
+              <?php 
+              if(strlen($rec['title'])>150){
+                echo substr($rec['title'],0,150)."...";
+              }else{
+                echo $rec['title'];
+              }
+              ?>
+              </a>
             </div>
             
             <div class="recent-extrainfo extrainfo">
@@ -143,7 +155,13 @@ $popular=mysqli_query($mysqli,"select * from blogs where visibility = 'public' A
           </div>
           <div class="popular-details-div details-div">
             <div class="popular-title title">
-              <a href="blog.php?blogid=<?php echo $pop['id']; ?>"><?php echo $pop['title']; ?></a>
+              <a href="blog.php?blogid=<?php echo $pop['id']; ?>"><?php 
+              if(strlen($pop['title'])>150){
+                echo substr($pop['title'],0,150)."...";
+              }else{
+                echo $pop['title'];
+              }
+              ?></a>
             </div>
             
             <div class="popular-extrainfo extrainfo">

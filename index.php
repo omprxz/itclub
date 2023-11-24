@@ -30,7 +30,7 @@
   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="common.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -42,8 +42,10 @@
 <section class="middle">
   <div class="intro">
     <img src="img/itclublogo.webp" alt="IT Club Logo" class="introLogo" data-aos-duration="1500" data-aos="fade-down">
-    <p class="introPara" data-aos-duration="1500" data-aos="fade-right">Welcome to the heart of innovation at New Government Polytechnic, Patna. We are the IT Club, a dynamic group of tech enthusiasts. Our specializations encompass a wide range of services, including website maintenance, professional photoshoots, precise video editing, captivating graphics design, engaging content writing, technical wizardry, and efficient social media management. <br /><br>
-    We invite you to join us on an exciting journey where we explore the realms of creativity, technology, and endless possibilities. At the IT Club, we're committed to pushing the boundaries of innovation and embracing the future of technology.</p>
+    <p class="introPara" data-aos-duration="1500" data-aos="fade-right">Welcome to the heart of innovation at New Government Polytechnic, Patna. We are the IT Club, a dynamic group of tech enthusiasts. Our specializations encompass a wide range of services, including website maintenance, professional photoshoots, precise video editing, captivating graphics design, engaging content writing, technical wizardry, and efficient social media management. </p>
+    <div class="explore-blog-div">
+        <a href="blogs/" class="explore-blog-btn">Explore Blogs ➠</a>
+    </div>
   </div>
 
   
