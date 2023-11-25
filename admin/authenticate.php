@@ -11,11 +11,11 @@ if (isset($_SESSION['loggedin'])) {
   require('../action/conn.php');
   if (isset($_POST['login'])) {
     // Retrieve posted email and password (validate and sanitize as needed)
-    $email = $_POST['email'];
+    $userid = $_POST['userid'];
     $password = $_POST['password'];
 
     // Check credentials against the database using mysqli_query
-    $sql = "SELECT * FROM adminCreds WHERE admin_email = '$email'";
+    $sql = "SELECT * FROM adminCreds WHERE admin_email = '$userid' OR admin_username = '$userid'";
     $result = mysqli_query($mysqli, $sql);
 
     if ($result) {
@@ -27,8 +27,9 @@ if (isset($_SESSION['loggedin'])) {
           // Authentication successful
           $_SESSION['loggedin'] = true;
           $_SESSION['admin_id'] = $row['admin_id'];
-$_SESSION['admin_level'] = $row['admin_level'];
+          $_SESSION['admin_level'] = $row['admin_level'];
           $_SESSION['admin_name'] = $row['admin_name'];
+          $_SESSION['admin_username'] = $row['admin_username'];
           header('Location: index.php');
         } else {
           // Authentication failed
@@ -51,15 +52,20 @@ $_SESSION['admin_level'] = $row['admin_level'];
       // Retrieve posted registration data (validate and sanitize as needed)
       $admin_email = $_POST['email'];
       $admin_name = $_POST['name'];
+      $admin_username = $_POST['username'];
       $admin_password = $_POST['password']; // Hash the password
-
+      
+      // Check if the email is already registered
+      $checkUnameSQL = "SELECT * FROM adminCreds WHERE admin_username = '$admin_username'";
+      $UnameResult = mysqli_query($mysqli, $checkUnameSQL);
+      
+      if (mysqli_num_rows($UnameResult) == 0) {
       // Check if the email is already registered
       $checkEmailSQL = "SELECT * FROM adminCreds WHERE admin_email = '$admin_email'";
       $emailResult = mysqli_query($mysqli, $checkEmailSQL);
 
       if (mysqli_num_rows($emailResult) == 0) {
-        // Email is not already registered; proceed with registration
-        $insertSQL = "INSERT INTO adminCreds (admin_email, admin_name, admin_pass) VALUES ('$admin_email', '$admin_name', '$admin_password')";
+        $insertSQL = "INSERT INTO adminCreds (admin_email,admin_username, admin_name, admin_pass) VALUES ('$admin_email','$admin_username', '$admin_name', '$admin_password')";
 
         if (mysqli_query($mysqli, $insertSQL)) {
           // Registration successful; redirect to login page
@@ -70,7 +76,10 @@ $_SESSION['admin_level'] = $row['admin_level'];
         }
       } else {
         // Email is already registered; show an error
-        header('Location: signup.php?error=email_exists');
+         header("Location: signup.php?error=email already registered&name=$admin_name&username=$admin_username&email=$admin_email");
+      }
+      }else{
+         header("Location: signup.php?error=username not available&name=$admin_name&username=$admin_username&email=$admin_email");
       }
 
       mysqli_close($mysqli);

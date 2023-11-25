@@ -34,8 +34,7 @@
   </section>
   
   <?php include('footer.html');?>
-  
-  <script src="../eruda.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="components/search.js"></script>
 </body>

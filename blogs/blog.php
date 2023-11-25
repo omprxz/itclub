@@ -41,7 +41,6 @@ if (isset($_GET['blogid'])) {
   <link rel="stylesheet" href="components/blog.css" type="text/css" media="all" />
 </head>
 <body>
-  <script src="../eruda.js"></script>
 <script>
   let blogid=<?php echo $id; ?>;
   let authorid=<?php echo $authorId; ?>;

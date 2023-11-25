@@ -5,15 +5,18 @@ if (!isset($_SESSION['loggedin'])) {
     exit();
 }
 
-$admin_id=$_SESSION["admin_id"];
-
-?>
-<meta name="viewport" content="width=device-width">
-<link rel="icon" href="img/favicon.ico" type="image/x-icon">
-<title>Create Notice</title>
-<?php
 require('../action/conn.php');
+$admin_id=$_SESSION["admin_id"];
+$query = "SELECT admin_level FROM adminCreds WHERE admin_id = $admin_id";
+$result = $mysqli->query($query);
+if ($result) {
+    $row = $result->fetch_assoc();
+    $admin_level = $row['admin_level'];
+    $result->free_result();
+}
+
 if (isset($_POST['createNotice'])) {
+  if($admin_level >= 3){
     $title = $_POST['title'];
     $content = $_POST['content'];
     
@@ -58,47 +61,55 @@ if (isset($_POST['createNotice'])) {
     } else {
         echo "Error: " . $sql . "<br>" . $mysqli->error;
     }
+  }else{
+    echo "<p style='color:red;font-size:16px;margin:10px;'>The notice cannot be created because you're not allowed to create notices.</p>";
+  }
 }
-
 
 $mysqli->close();
 ?>
 
-
-<!DOCTYPE html>
 <html>
 <head> 
+<meta name="viewport" content="width=device-width">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
     <title>Create Notice</title>
     <style>
-        body{
-            padding: 10px;
-            background-color: rgb(184, 183, 183);
+        .noticeForm{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
         .title{
-            height: 25px;
-            width: 355px;
-            border-radius: 5px;
+            height: 35px;
+            width: clamp(200px,90%,500px);
+            border-radius: 3px;
             border: 1px solid black;
+            outline: 0;
         }
         .content{
             border: 1px solid black;
             border-radius: 3px;
-            height: 300px;
+            height: 250px;
+            width: 90%;
             border-radius: 5px;
             margin-top: 4px;
             padding: 5px;
             overflow: scroll;
             color: black;
+            outline: 0;
         }
         .format-options{
             padding: 5px 10px;
         }
         .imgDrop{
-            margin-top: 10px;
+            margin: 15px 20px;
+            width: 90%;
             border: 1px solid black;
             padding: 10px;
             border-radius: 5px;
             background-color: aquamarine;
+            overflow: hidden;
         }
         .imgDrop label{
             font-weight: 600;
@@ -110,12 +121,11 @@ $mysqli->close();
             background-color: rgb(1, 206, 206);
         }
         .submit{
-            margin-top: 15px;
-            margin-left: 130px;
-            height: 30px;
-            padding: 2px 10px;
+            margin-top: 5px;
+            height: 40px;
+            padding: 2px 15px;
             border-radius: 7px;
-            border: 1.5px solid black;
+            border: 1px solid #143e48;
             background-color: aqua;
         }
         .activeBtn{
@@ -124,11 +134,19 @@ $mysqli->close();
     </style>
 </head>
 <body>
-    <h1>Create an Notice</h1> <br>
-    <form method="POST" action="" enctype="multipart/form-data">
-        <label for="title" style="font-weight: bold;">Title:</label><br>
-        <input type="text" class="title" name="title" required><br><br>
-        <label for="content" style="font-weight: bold;">Content:</label><br>
+   <?php include 'header.php'; ?>
+  <br/>
+    <h2 style="text-align:center;margin-bottom:15px;">Create an Notice
+     <?php
+if($admin_level < 3){
+  echo "<p style='color:red;font-size:16px;'>You are currently not allowed to create notices.</p>";
+}
+?>
+    </h2>
+    <form method="POST" class="noticeForm" action="" enctype="multipart/form-data">
+        <label for="title" style="font-weight: bold;">Title:</label>
+        <input type="text" class="title" name="title" required> <br/>
+        <label for="content" style="font-weight: bold;">Content:</label>
         <div style="text-align: center;">
             <button type="button" class="format-options" onclick="document.execCommand('bold', false, null)"><b>B</b></button>
             <button type="button" class="format-options" onclick="document.execCommand('underline', false, null)"><u>U</u></button>

@@ -4,13 +4,17 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: login.php');
     exit();
 }
+require '../action/conn.php';
 $admin_id=$_SESSION["admin_id"];
-?>
-<meta name="viewport" content="width=device-width">
-<?php
+$query = "SELECT admin_level FROM adminCreds WHERE admin_id = $admin_id";
+$result = $mysqli->query($query);
+if ($result) {
+    $row = $result->fetch_assoc();
+    $admin_level = $row['admin_level'];
+    $result->free_result();
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require '../action/conn.php';
-
+  if($admin_level >= 3){
     $event_title = $mysqli->real_escape_string($_POST["event_title"]);
     if(isset($_POST['event_description'])){
     $event_description = $mysqli->real_escape_string($_POST["event_description"]);}else{
@@ -59,8 +63,7 @@ if(isset($_POST['event_ytlink'])){
         $imageURL='';
     }
   // Insert the image URL into the database using mysqli_query
-
-                $sql = "INSERT INTO events (event_title, event_description, event_date, event_imgurl, event_gphotoslink, query_admin_id,event_ytlink) VALUES ('$event_title', '$event_description', '$event_date', '$imageURL', '$event_gphotoslink','$admin_id','$event_ytlink')";
+   $sql = "INSERT INTO events (event_title, event_description, event_date, event_imgurl, event_gphotoslink, query_admin_id,event_ytlink) VALUES ('$event_title', '$event_description', '$event_date', '$imageURL', '$event_gphotoslink','$admin_id','$event_ytlink')";
 
 
                 if (mysqli_query($mysqli, $sql)) {
@@ -68,24 +71,33 @@ if(isset($_POST['event_ytlink'])){
                 } else {
                     echo "Error in creating event: " . mysqli_error($mysqli);
                  }
+}else{
+   echo "<p style='color:red;font-size:16px;margin:10px;'>The event cannot be created because you're not allowed to create events.</p>";
+}
     $mysqli->close();
 }
 ?>
-
-<!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width">
     <title>Create Event</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
       .event_descriptionDiv{
-        
-        height: auto;
+        height: 150px;
       }
     </style>
 </head>
 <body>
-    <h2 class="text-center fw-bold my-2">Create Event</h2>
+   <?php include 'header.php'; ?>
+  <br/>
+    <h2 class="text-center fw-bold my-2">Create Event
+    <?php
+if($admin_level < 3){
+  echo "<p style='color:red;font-size:16px;'>You are currently not allowed to create events.</p>";
+}
+?>
+    </h2>
 <div class="container">
     <form method="post" enctype="multipart/form-data">
         <label for="event_title">Event Title:</label>
@@ -106,10 +118,10 @@ if(isset($_POST['event_ytlink'])){
         <label for="event_image">Event Image (Max Limit: 2MB):</label>
         <input type="file" name="event_image" class="mb-3" accept="image/*">
 
-        <label for="event_gphotoslink">Google Photos Link:</label>
+        <label for="event_gphotoslink">Google Photos Link: <br> (if multiple then seperate by commas)</label>
         <input type="text" name="event_gphotoslink" class="form-control mb-3" placeholder="Google photos">
 
-<label for="event_ytlink">YouTube Link:</label>
+<label for="event_ytlink">YouTube Link: <br />(if multiple then seperate by commas)</label>
 <input type="text" name="event_ytlink" class="form-control mb-3" placeholder="YouTube Link">
 
         <center><input type="submit" value="Create Event" class="btn btn-primary my-3">

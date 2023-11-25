@@ -7,22 +7,17 @@ if (!isset($_SESSION['loggedin'])) {
 require('../../action/conn.php');
  
 $admin_id = $_SESSION["admin_id"];
-$response = array();
+$query = "SELECT admin_level FROM adminCreds WHERE admin_id = $admin_id";
 
-$st = "select admin_level from adminCreds where admin_id = '$admin_id'";
-$result = mysqli_query($mysqli, $st);
+$result = $mysqli->query($query);
 
 if ($result) {
-  $row = mysqli_fetch_assoc($result);
-  $admin_level = $row['admin_level'];
-  mysqli_free_result($result);
-} else {
-  $response['status']='failed';
-  $response['result']='Can\'t fetch admin level.';
-  $response=json_encode($response);
-  echo($response);
-  exit();
+    $row = $result->fetch_assoc();
+    $admin_level = $row['admin_level'];
+    $result->free_result();
 }
+
+$response = array();
 
 if(isset($_GET['id'])){
   
@@ -32,7 +27,7 @@ if(isset($_GET['id'])){
   if(mysqli_num_rows($eSql)>0){
     $rowData=mysqli_fetch_assoc($eSql);
     
-if($rowData['adminId'] != $admin_id && $admin_level < 7){
+if($rowData['adminId'] != $admin_id && $admin_level < 6){
   $response['status']='failed';
   $response['result']='You are not authorized to edit this blog.';
   $response=json_encode($response);

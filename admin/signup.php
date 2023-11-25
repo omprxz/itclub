@@ -82,7 +82,7 @@ body {
     background: black;
     z-index: 10;
     color: yellow;
-    padding: 50px 10px;
+    padding: 40px 10px;
     display: flex;
     flex-direction: column;
 }
@@ -94,7 +94,7 @@ body {
 .InputBox {
     position: relative;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .InputBox input {
     position: relative;
@@ -118,11 +118,11 @@ body {
     letter-spacing: .05em;
     transition: .5s;
 }
-.InputBox input:valid ~ span,
+.InputBox input:not(:placeholder-shown) ~ span,
 .InputBox input:focus ~ span
 {
     color: yellow;
-    transform: translateX(-10px) translateY(-34px);
+    transform: translateX(-10px) translateY(-28px);
     font-size: .75em;
 }
 .InputBox i {
@@ -137,10 +137,10 @@ body {
     pointer-events: none;
     z-index: 9;
 }
-.InputBox input:valid ~ i,
+.InputBox input:not(:placeholder-shown) ~ i,
 .InputBox input:focus ~ i
 {
-    height: 44px;
+    height: 38px;
 }
 .error {
     display: flex;
@@ -173,17 +173,22 @@ input[type="submit"]:active
         <form action="authenticate.php" method="post" class="login">
             <h2>ADMIN SIGN UP</h2>
                 <div class="InputBox">
-                    <input type="text" name="name" required="required">
+                    <input type="text" name="name" placeholder=" " value="<?php echo $_GET['name']?>" required="required">
                     <span>Name</span>
                     <i></i>
                 </div>
                 <div class="InputBox">
-                    <input type="email" name="email" required="required">
+                    <input type="text" name="username" value="<?php echo $_GET['username']?>" placeholder=" " required="required">
+                    <span>Username</span>
+                    <i></i>
+                </div>
+                <div class="InputBox">
+                    <input type="email" name="email" value="<?php echo $_GET['email']?>" placeholder=" " required="required">
                     <span>Email</span>
                     <i></i>
                 </div>
                 <div class="InputBox">
-                    <input type="password" name="password" required="required">
+                    <input type="password" name="password" placeholder=" " required="required">
                     <span>Password</span>
                     <i></i>
                 </div>

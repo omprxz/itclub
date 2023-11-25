@@ -234,7 +234,6 @@ $popular=mysqli_query($mysqli,"select * from blogs where visibility = 'public' A
   
   <?php include('footer.html') ?>
   
-  <script src="../eruda.js" type="text/javascript" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="components/index.js" type="text/javascript" charset="utf-8"></script>
 </body>

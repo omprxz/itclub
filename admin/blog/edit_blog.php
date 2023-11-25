@@ -6,7 +6,13 @@ if (!isset($_SESSION["loggedin"])) {
 }
 require('../../action/conn.php');
 $admin_id = $_SESSION["admin_id"];
-
+$query = "SELECT admin_level FROM adminCreds WHERE admin_id = $admin_id";
+$result = $mysqli->query($query);
+if ($result) {
+    $row = $result->fetch_assoc();
+    $admin_level = $row['admin_level'];
+    $result->free_result();
+}
 ?>
 <html>
 <head>
@@ -21,7 +27,13 @@ $admin_id = $_SESSION["admin_id"];
 <body>
 
 <div class="container">
-<h1 style="text-align:center;text-decoration:underline;">Edit blog &nbsp;<i class="fas fa-pencil"></i></h1>
+<h1 style="text-align:center;text-decoration:underline;">Edit blog &nbsp;<i class="fas fa-pencil"></i>
+<?php
+if($admin_level < 2){
+  echo "<p style='color:red;font-size:16px;'>You are currently not allowed to create or edit blogs.</p>";
+}
+?>
+</h1>
 
 <form id="blogForm" class="blogForm" method="post" enctype="multipart/form-data">
 <div class="col">
@@ -89,7 +101,6 @@ $admin_id = $_SESSION["admin_id"];
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/eruda.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" src="/richtexteditor/rte.js"></script>
 <script type="text/javascript" src='/richtexteditor/plugins/all_plugins.js'></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

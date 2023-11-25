@@ -4,12 +4,19 @@ if (!isset($_SESSION['loggedin'])) {
   header('Location: login.php');
   exit();
 }
-
 $err = 0;
 $response = array();
-
-$admin_id = $_SESSION["admin_id"];
 require('../../action/conn.php');
+$admin_id = $_SESSION["admin_id"];
+$query = "SELECT admin_level FROM adminCreds WHERE admin_id = $admin_id";
+
+$result = $mysqli->query($query);
+
+if ($result) {
+    $row = $result->fetch_assoc();
+    $admin_level = $row['admin_level'];
+    $result->free_result();
+}
 
 function sanitizeInput($input, $conn) {
   if (is_array($input)) {
@@ -25,12 +32,24 @@ function sanitizeInput($input, $conn) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
+  $id=$_POST['id'];
+  
+  $admId = mysqli_query($mysqli,"select adminId from blogs where id = $id");
+  if(mysqli_num_rows($admId)>0){
+    $admId=mysqli_fetch_assoc($admId)['adminId'];
+  }else{
+    $response['status']='failed';
+  $response['result']='Blog not available.';
+  $response=json_encode($response);
+  echo($response);
+      exit();
+  }
+  if($admId == $admin_id || $admin_level >= 6){
+  
   $title = sanitizeInput($_POST['title'], $mysqli);
   $content = sanitizeInput($_POST['content'], $mysqli);
   $tags = sanitizeInput($_POST['tags'], $mysqli);
   
-  $id=$_POST['id'];
   $pubTime=$_POST['pubTime'];
   $sameThumbnail=$_POST['sameThumbnail'];
   $thumbnailUrl=$_POST['thumbnailUrl'];
@@ -149,7 +168,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $response=json_encode($response);
   echo($response);
     }
-} else {
+}else{
+   $response['status']='failed';
+  $response['result']='You are not authorized to edit this blog.';
+  $response=json_encode($response);
+  echo($response);
+  exit();
+}
+}else {
    $response['status']='failed';
   $response['result']='Method not allowed.';
   $response=json_encode($response);

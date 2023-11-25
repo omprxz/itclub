@@ -8,18 +8,19 @@ if (!isset($_SESSION['loggedin'])) {
 $err = 0;
 $response = array();
 
-$admin_id = $_SESSION["admin_id"];
 require('../../action/conn.php');
+$admin_id = $_SESSION["admin_id"];
+$query = "SELECT admin_level FROM adminCreds WHERE admin_id = $admin_id";
 
+$result = $mysqli->query($query);
 
-$st = "select admin_level from adminCreds where admin_id = '$admin_id'";
-$result = mysqli_query($mysqli, $st);
 if ($result) {
-  $row = mysqli_fetch_assoc($result);
-  $admin_level = $row["admin_level"];
-  mysqli_free_result($result);
+    $row = $result->fetch_assoc();
+    $admin_level = $row['admin_level'];
+    $result->free_result();
 }
-if($admin_level >= 7){
+
+if($admin_level >= 6){
   $approved = 1;
 }else{
   $approved = 0;
@@ -40,6 +41,7 @@ function sanitizeInput($input, $conn) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if($admin_level>1){
 
   $title = sanitizeInput($_POST['title'], $mysqli);
   $content = sanitizeInput($_POST['content'], $mysqli);
@@ -129,7 +131,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $url = uniqid($url."_");
 
-
   if ($err == 0) {
     $sql = "insert into blogs (title,content,thumbnail,tags,visibility,publishTime,url,adminId,createdTime,approved) values('$title','$content','$thumbnail','$tags','$visibility','$publishTime','$url',$admin_id,'$created_time',$approved)";
     if (mysqli_query($mysqli, $sql)) {
@@ -167,6 +168,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $response=json_encode($response);
   echo($response);
     }
+  
+}else{
+   $response['status']='failed';
+  $response['result']='You are not allowed to create blogs.';
+  $response=json_encode($response);
+  echo($response);
+  exit();
+}
 } else {
    $response['status']='failed';
   $response['result']='Method not allowed.';

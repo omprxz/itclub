@@ -12,11 +12,11 @@ if (isset($_SESSION['loggedin'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin login</title>
-    <style>
+<style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,400;1,600&family=Ubuntu&display=swap');
 
 * {
-    margin: 0;
+    margin: 
     padding: 0;
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
@@ -31,7 +31,7 @@ body {
 .auth {
     position: relative;
     width: 340px;
-    height: 420px;
+    height: 550px;
     background: black;
     border-radius: 10px;
     overflow: hidden;
@@ -49,7 +49,7 @@ body {
     top: -50%;
     left: -50%;
     width: 340px;
-    height: 390px;
+    height: 500px;
     background: linear-gradient(0deg, yellow, transparent, transparent);
     transform-origin:bottom right ;
     animation: animate 6s linear infinite;
@@ -60,7 +60,7 @@ body {
     top: -50%;
     left: -50%;
     width: 300px;
-    height: 390px;
+    height: 500px;
     background: linear-gradient(0deg, yellow, transparent, transparent);
     transform-origin:bottom right ;
     animation: animate 6s linear infinite;
@@ -81,7 +81,7 @@ body {
     background: black;
     z-index: 10;
     color: yellow;
-    padding: 50px 10px;
+    padding: 40px 10px;
     display: flex;
     flex-direction: column;
 }
@@ -93,7 +93,7 @@ body {
 .InputBox {
     position: relative;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .InputBox input {
     position: relative;
@@ -117,11 +117,11 @@ body {
     letter-spacing: .05em;
     transition: .5s;
 }
-.InputBox input:valid ~ span,
+.InputBox input:not(:placeholder-shown) ~ span,
 .InputBox input:focus ~ span
 {
     color: yellow;
-    transform: translateX(-10px) translateY(-34px);
+    transform: translateX(-10px) translateY(-28px);
     font-size: .75em;
 }
 .InputBox i {
@@ -136,22 +136,16 @@ body {
     pointer-events: none;
     z-index: 9;
 }
-.InputBox input:valid ~ i,
+.InputBox input:not(:placeholder-shown) ~ i,
 .InputBox input:focus ~ i
 {
-    height: 44px;
+    height: 38px;
 }
 .error {
     display: flex;
     justify-content: center;
-    margin: 10px;
+    margin: 20px;
     color: red;
-}
-.success{
-  display: flex;
-  justify-content: center;
-  margin: 10px;
-  color: #46fb00;
 }
 
 input[type="submit"]
@@ -177,14 +171,13 @@ input[type="submit"]:active
     <div class="auth">
         <form action="authenticate.php" method="post" class="login">
             <h2>ADMIN LOG IN</h2>
-<h5 class="error">Only for IT Club Members</h5>
                 <div class="InputBox">
-                    <input type="email" name="email" required="required">
-                    <span>Email</span>
+                    <input type="text" name="userid" placeholder=" " required="required">
+                    <span>Email or username</span>
                     <i></i>
                 </div>
                 <div class="InputBox">
-                    <input type="password" name="password" required="required">
+                    <input type="password" placeholder=" " name="password" required="required">
                     <span>Password</span>
                     <i></i>
                 </div>
@@ -204,8 +197,7 @@ input[type="submit"]:active
                   ?>
                 </div>
                 <input name="login" type="submit" value="Login">
-             <!--    <a href="signup.php" style="color:yellow;text-decoration:none;margin:20px auto;"> Go to Sign up </a>
--->
+                <a href="signup.php" style="color:yellow;text-decoration:none;margin:20px auto;"> Go to Sign up </a>
         </form>
         
     </div>
