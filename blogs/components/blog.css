@@ -68,6 +68,50 @@ body{
   font-size: 15px;
   color: #63728b;
 }
+
+/* HAS FULL ACCESS >>> */
+
+.hasFA{
+  background: #0F172A;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 25px;
+  margin: 0 -10px 0 -20px;
+  margin-left: -20px;
+  margin-right: -10px;
+}
+.visib{
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+.hasFA .textRed{
+  color: #f00;
+}
+.hasFA .textYellow{
+  color: #ff0;
+}
+.hasFA .textGreen{
+  color: #0f0;
+}
+.hasFA .blogEdit{
+  outline: 0;
+  border:1px solid #1073ff;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+  color: #1073ff;
+  background: transparent;
+  text-decoration: none;
+}
+
+/* <<< HAS FULL ACCESS */
+
 .blog-content{
   margin-top: 10px;
   font-family: 'Montserrat', Sans-Serif;

@@ -19,9 +19,9 @@ if ($result) {
 
 $response = array();
 
-if(isset($_GET['id'])){
+if(isset($_GET['blogid'])){
   
-  $id=$_GET['id'];
+  $id=$_GET['blogid'];
   $sql="select * from blogs where id = '$id'";
   $eSql=mysqli_query($mysqli,$sql);
   if(mysqli_num_rows($eSql)>0){

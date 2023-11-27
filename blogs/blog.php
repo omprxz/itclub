@@ -1,15 +1,31 @@
 <?php
+session_start();
 if (isset($_GET['blogid'])) {
   require('../action/conn.php');
   $id=$_GET['blogid'];
-  //views
-  $views=mysqli_query($mysqli,"update blogs set views = views + 1 where id = $id");
   
-  
+  if(isset($_SESSION['loggedin'])){
+    $admin_id=$_SESSION['admin_id'];
+    $admin_level = mysqli_fetch_assoc(mysqli_query($mysqli,"select admin_level from adminCreds where admin_id = $admin_id"))['admin_level'];
+    
+    $checkAdminId = mysqli_fetch_assoc(mysqli_query($mysqli,"select adminId from blogs where id = $id"))['adminId'];
+    if($checkAdminId==$admin_id || $admin_level >= 6){
+      $detSql = "select * from blogs where id = $id";
+      $hasFullAccess = true;
+    }else{
+      $detSql = "select * from blogs where id = '$id' AND visibility = 'public' AND approved = 1";
+      $hasFullAccess = false;
+    }
+  }else{
   $detSql = "select * from blogs where id = '$id' AND visibility = 'public' AND approved = 1";
+  $hasFullAccess = false;
+  }
   $EdetSql = mysqli_query($mysqli,$detSql);
   if(mysqli_num_rows($EdetSql)>0){
     $blogAvailable=true;
+    //views
+    $views=mysqli_query($mysqli,"update blogs set views = views + 1 where id = $id");
+    
     $blogDets = mysqli_fetch_assoc($EdetSql);
     $authorSql = "select admin_name,admin_designation,admin_profilepic,admin_username from adminCreds where admin_id = '".$blogDets['adminId']."'";
     $EauthorSql = mysqli_query($mysqli,$authorSql);
@@ -22,8 +38,11 @@ if (isset($_GET['blogid'])) {
     $authorDesig = $EauthorSql['admin_designation'];
     $title = $blogDets['title'];
     $published = date_format(date_create($blogDets['publishTime']), 'd M, Y');
+    $pubTime=$blogDets['publishTime'];
     $content = htmlspecialchars_decode($blogDets['content']);
     $likes=$blogDets['likes'];
+    $visibility = $blogDets['visibility'];
+    $approved = $blogDets['approved'];
     $tags = explode(',',$blogDets['tags']);
     $pageTitle=$title;
   }else{
@@ -122,6 +141,56 @@ text-align: center;
       <p class="author-designation"><?php echo $authorDesig; ?></p>
     </div>
   </div>
+  <?php
+  if($hasFullAccess==true){
+  if($visibility != 'public' || $approved <= 0 || isset($_GET['preview'])){
+    $visibIcon = "fas fa-lock";
+    $approvedIcon = "fa-check-circle";
+    $approvedStatus = "Approved";
+
+    $formattedDateHA = date('M d, Y h:m:s', strtotime($pubTime));
+
+    if ($visibility == 'public') {
+        $visibIcon = "fas fa-globe";
+        $pubTime=$formattedDateHA;
+    } else if ($visibility == 'private') {
+        $visibIcon = "fas fa-lock";
+        $pubTime="";
+    } else if ($visibility == 'schedule') {
+        $visibIcon = "far fa-calendar-alt";
+        $pubTime=$formattedDateHA;
+    }
+  
+    if($approved == 0){
+        $approvedIcon = "fas fa-times-circle textYellow";
+        $approvedStatus = "Approval Pending";
+    }
+    else if ($approved < 0) {
+        $approvedIcon = "fas fa-hourglass textRed";
+        $approvedStatus = "Rejected";
+    } else if($approved > 0) {
+        $approvedIcon = "fas fa-check-circle textGreen";
+        $approvedStatus = "Approved";
+    }
+  
+  ?>
+  <div class="hasFA">
+      <span class="textRed">Admin View Only! <i class="fas fa-hand-point-down"></i></span>
+      <p class="visib">
+        <i class="<?php echo $visibIcon; ?>"></i>&nbsp; <?php echo $visibility; ?>
+      </p>
+      <p style="margin-bottom:0;">
+        <?php echo $pubTime; ?>
+      </p>
+      <p class="appr">
+        <i class="<?php echo $approvedIcon; ?>"></i>&nbsp; <?php echo $approvedStatus; ?>
+      </p>
+      <a href="../admin/blog/edit_blog.php?blogid=<?php echo $id; ?>" class="blogEdit">Edit This Blog &nbsp;<i class="fas fa-edit"></i></a>
+  </div>
+  <?php 
+    }
+  }
+  ?>
   <div class="blog-content">
     <?php echo $content; ?>
   </div>

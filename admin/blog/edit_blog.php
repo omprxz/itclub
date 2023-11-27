@@ -17,7 +17,6 @@ if ($result) {
 <html>
 <head>
   <meta name="viewport" content="width=device-width" />
-
 <title>Edit blog</title>
 <link rel="stylesheet" href="css/edit_blog.css" />
 <link rel="stylesheet" href="/richtexteditor/rte_theme_default.css" />
@@ -26,7 +25,9 @@ if ($result) {
 </head>
 <body>
 
-<div class="container">
+   <?php include 'header.php'; ?>
+
+<div class="container" style="margin:15px;">
 <h1 style="text-align:center;text-decoration:underline;">Edit blog &nbsp;<i class="fas fa-pencil"></i>
 <?php
 if($admin_level < 2){

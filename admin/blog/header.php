@@ -4,7 +4,7 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: login.php');
     exit();
 }
-require '../action/conn.php';
+require '../../action/conn.php';
 $admin_id=$_SESSION["admin_id"];
 $query = "SELECT admin_profilepic,admin_name,admin_level FROM adminCreds WHERE admin_id = $admin_id";
 $result = $mysqli->query($query);
@@ -62,14 +62,14 @@ if ($result) {
   </style>
 <nav class="nav">
     <div class="nav-left">
-      <a href="../admin" class="nav-left-home">
+      <a href="../../admin" class="nav-left-home">
       <i class="fas fa-home"></i>
       </a>
     </div>
     <div class="nav-right">
-      <a href="profile.php" class="nav-right-profile">
+      <a href="../profile.php" class="nav-right-profile">
         <span>Hii, <?php echo $admin_name; ?></span>
-        <img src="images/admins/<?php echo $admin_profilepic; ?>" alt="<?php echo $admin_name; ?>">
+        <img src="../images/admins/<?php echo $admin_profilepic; ?>" alt="<?php echo $admin_name; ?>">
       </a>
     </div>
   </nav>
