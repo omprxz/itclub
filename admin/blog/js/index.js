@@ -54,7 +54,7 @@ $(document).ready(function() {
                 })
                 
                 if($('.blogCards').find('.blogCard').length === 0){
-                  $('.blogCards').append('<p class="text-center"><i class="fas fa-sync"></i>&nbsp; Refreshing the page.Please wait...</p>')
+                  $('.blogCards').append('<p class="text-center"><i class="fas fa-sync"></i>&nbsp; Refreshing the page. Please wait...</p>')
                   setTimeout(function() {location.reload()}, 2500);
                 }
                 resolve(delData['result']);

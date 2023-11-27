@@ -86,7 +86,10 @@ class="statsLikes d-flex flex-column justify-content-center align-items-center b
 </div>
 
 </div>
-<div class="creatBlog d-flex justify-content-center">
+<div class="creatBlog d-flex justify-content-center gap-3">
+  <a class="btn btn-outline-danger rounded d-flex align-items-center my-2" href="trashed_blog.php">
+    <i class="fas fa-trash-alt"></i>&nbsp; Trashed Blogs
+  </a>
   <a class="btn btn-outline-primary rounded d-flex align-items-center my-2" href="create_blog.php">
     <i class="fas fa-plus"></i>&nbsp; Create New Blog
   </a>

@@ -76,7 +76,7 @@ if (isset($_POST['del_id'])) {
       }
     } else {
       $response['status'] = 'failed';
-      $response['result'] = 'You do not have permission to restore this blog.'.mysqli_error($mysqli);
+      $response['result'] = 'You do not have permission to restore this blog.'.$fetchedAdminId.'>'.$admin_id;
     }
   } else {
     $response['status'] = 'failed';

@@ -8,7 +8,6 @@ $admin_id = $_SESSION['admin_id'];
 require '../../action/conn.php';
 
 $getDelData = mysqli_query($mysqli,"select title,id,thumbnail,delId,delTime from blogsTrash");
-
 ?>
 <html>
   <head>
@@ -22,10 +21,13 @@ $getDelData = mysqli_query($mysqli,"select title,id,thumbnail,delId,delTime from
     <script>
       let adminId = '<?php echo $admin_id; ?>';
     </script>
+    
+    <?php include "header.php"; ?>
+    
     <div class="trashBlogs pt-2">
-      <h2 class="text-center fw-bold" style="font-family: arial;">Trash Blogs</h2>
+      <h2 class="text-center fw-bold mt-2" style="font-family: arial;">Deleted Blogs</h2>
       <p class="text-center text-danger mb-4">
-        Blogs in the trash will be automatically deleted after 30 days.
+        Blogs in the trash auto-delete after 30 days
       </p>
       <div class="blogCards d-flex flex-wrap justify-content-center gap-3">
         
@@ -35,12 +37,12 @@ $getDelData = mysqli_query($mysqli,"select title,id,thumbnail,delId,delTime from
             $formattedDelData = date('M d, Y', strtotime($blog['delTime']));
           ?>
           
-           <div class="card mx-auto shadow border-2 border-dark-subtle blogCard blogNo<?php echo $blog['id'];?>" style="width: 18rem;">
+           <div class="card mx-auto shadow border-2 border-dark-subtle blogCard blogNo<?php echo $blog['delId'];?>" style="width: 18rem;">
           <img src="../../blogs/thumbnails/<?php echo $blog['thumbnail'];?>" class="card-img-top" alt="<?php echo substr($blog['thumbnail'],0,20);?>">
           <div class="card-body">
           <h5 class="card-title"><?php echo $blog['title']; ?></h5>
           <div class="restoreDiv text-center">
-          <button href="#" class="btn btn-outline-success restore mt-2" data-delId="<?php echo $blog['id'];?>">Restore &nbsp;<i class="fas fa-undo"></i></button>
+          <button href="#" class="btn btn-outline-success restore mt-2" data-delId="<?php echo $blog['delId'];?>">Restore &nbsp;<i class="fas fa-undo"></i></button>
           </div>
         </div>
           <div class="card-footer text-danger text-center">
@@ -51,14 +53,13 @@ $getDelData = mysqli_query($mysqli,"select title,id,thumbnail,delId,delTime from
           <?php
           }
         }else{
-          echo "<div class='text-center my-3'>No blogs in trash <i class='fas fa-trash'></i></div>";
+          echo "<div class='text-center my-3'>No blogs in trash &nbsp;<i class='fas fa-trash'></i></div>";
         }
         ?>
         
        
       </div>
     </div>
-    
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -89,8 +90,8 @@ $getDelData = mysqli_query($mysqli,"select title,id,thumbnail,delId,delTime from
             if(delData['status']=='success'){
               icon='success';
               $('.blogNo'+thisDelId).remove()
-              if($('.blogCards').find('.blogCard') === 0){
-                $('.blogCards').html("<div class='text-center text-success my-3'>All blogs restored. <i class='fas fa-checkmark'></i> <br> <a class='btn btn-outline-primary'>Return to blog control panel &nbsp;<i class='fas fa-reply'></i></a></div>")
+              if($('.blogCards').find('.blogCard').length === 0){
+                $('.blogCards').html("<div class='text-center text-success my-3'>All blogs restored &nbsp;<i class='fas fa-check'></i> <br> <a href='../blog' class='btn btn-outline-primary my-4'>Return to control panel &nbsp;<i class='fas fa-reply'></i></a></div>")
               }
             }else{
               icon='error';

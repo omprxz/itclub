@@ -1,3 +1,6 @@
+php_value display_errors Off
+php_value mbstring.http_input auto
+php_value date.timezone Asia/Calcutta
 ErrorDocument 400 https://itclub.000.pe/error.php
 ErrorDocument 401 https://itclub.000.pe/error.php
 ErrorDocument 403 https://itclub.000.pe/error.php
@@ -8,7 +11,6 @@ RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:CF-Visitor} !{"scheme":"https"}
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-IndexIgnore * 
 SetEnv TZ Asia/Kolkata
 <IfModule mod_deflate.c>
 AddOutputFilterByType DEFLATE text/plain
