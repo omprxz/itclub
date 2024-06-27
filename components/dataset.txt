@@ -1,0 +1,281 @@
+IT Club Raw Data Starts Here >>>
+
+IT Club - NGP Patna 13
+    Welcome to the heart of innovation at New Government Polytechnic, Patna. We are the IT Club, a dynamic group of tech enthusiasts. Our specializations encompass a wide range of services, including website maintenance, professional photoshoots, precise video editing, captivating graphics design, engaging content writing, technical wizardry, and efficient social media management. 
+        Explore Blogs ➠
+    Notices
+  Events
+❮
+  ❯
+    Our Co-ordinators
+          Dr. Chandrashekhar Singh
+          Club President
+          Dr. Manju Kumari
+          Faculty Co-ordinator
+          Dr. Ranjeeta Tiwari
+          Faculty Co-ordinator
+          Prof. Shweta Chaubey
+          Faculty Co-ordinator
+          Dr. Divya Prabha
+          Faculty Co-ordinator
+          Ritesh Raj (2019-22)
+          IT Club Founder
+Gallery
+  ❮
+  ❯
+    Categories in IT Club
+      Website Management
+      Welcome to the digital guardians of the IT Club! Our Website Maintenance team takes the crucial responsibility of ensuring smooth and seamless online experiences for users. We're the unsung heroes working diligently behind the scenes, dedicated to keeping websites up and running like well-oiled machines. Our mission is to troubleshoot any issues that may arise, no matter how complex, and to implement timely updates to enhance functionality. From squashing those pesky bugs that can disrupt user experiences to optimizing performance to make websites faster and more efficient, we've got it all covered. Our passion lies in maintaining the digital landscape, and we take immense pride in our role as the guardians of a seamless online world.
+        Functions :
+        - Manage college website
+          - Update events & photos on college website
+      Photography
+      "Say cheese!" Our photography team is dedicated to the art of freezing moments in time through the lens, transforming mundane scenes into unforgettable memories. We excel at capturing intricate details and weaving compelling visual narratives. Within the IT Club's realm, we serve as the creative catalyst, infusing every project and event with a burst of vibrancy and captivating energy. From spontaneous candid shots to meticulously orchestrated professional photoshoots, we're here to ensure each image tells a story worth a thousand words. Our mission is to craft photographic tales that endure, where every smile, every gesture, and every expression unfolds in its full glory, preserving the magic of the moment for eternity.
+      Functions :
+          - College events
+          - For magazines & brochures
+      Video Editing
+      It's time for lights, camera, and action! Our Video Editing team at the IT Club is your gateway to cinematic enchantment. We take raw video footage and transmute it into captivating tales and immersive experiences. With our creative editing prowess, we breathe life into your narratives, infusing them with the spark of special effects, and ensuring that the end result is nothing less than mesmerizing. From bite-sized clips to grand productions, we're the driving force behind making your videos an unforgettable spectacle. With an eye for detail and an ear for the perfect soundtrack, we transform each frame into a piece of art, where your vision comes to life on the digital canvas. Lights, camera, and our action; that's the recipe for your video success.
+      Functions :
+          - Recorded Webinar Videos
+          - Infrastructure Related Videos
+      Graphics Designing
+      Within the realm of visual communication, our Graphics Designing team serves as the artist's canvas, where every pixel, line, and color carries significance. We are the architects of stunning visuals that possess a narrative all their own. Whether it's the creation of eye-catching posters that grab attention or the meticulous crafting of intricate logos, our designs have a singular power: to captivate and etch a lasting impression. Our secret ingredient is creativity, and with it, we mold the visual identity of the IT Club. Each stroke of our digital brush is intentional, every choice of color is purposeful, and every design is a testament to the club's unique personality and vision. In a world where visuals speak volumes, we ensure that the IT Club's message is not just heard but also remembered.
+      Functions :
+          - Poster
+          - Photo editing
+          - Making Logos and Thumbnails
+      Social Media Management
+      Step into the conversation! In the ever-evolving landscape of online interaction, our Social Media Management team serves as the catalyst for sparking discussions, forging connections, and infusing our digital presence with vibrancy and engagement. We craft posts that not only capture attention but also ignite conversations, making every interaction a meaningful one. From addressing comments and feedback with care and promptness to sharing in the collective enthusiasm of our community, we proudly wear the badge of being the voice of the IT Club in the virtual sphere. Our mission is to cultivate a sense of belonging, ensuring that everyone feels a part of our journey and remains well-informed and excited about our activities and accomplishments. Together, we transform the digital space into a hub of shared experiences, insights, and celebration. Join us, and let's keep the conversation going!
+      Functions :
+          - Manage college social handles
+          - Update and posts events on college social media handles
+      Content Writing
+      At the heart of our creative endeavor lies the power of words, and our Content Writing team turns them into an enchanting playground of expression. With the precision of a sculptor, we shape words into compelling stories, insightful articles, and impactful messages that resonate deeply with our audience. Our canvas spans from engaging blog posts that inform and inspire, to captivating social media content that sparks conversation, and persuasive promotional materials that leave a lasting impression. We are the custodians of the IT Club's narrative, the storytellers who breathe life into its mission and projects, ensuring that each word serves a purpose, each sentence evokes an emotion, and each piece of content we produce contributes to the collective journey of the club. Words are our medium, and through them, we amplify the voice of the IT Club in a world that thrives on communication and connection.
+      Functions :
+          - Magazine
+          - Placement Brochure
+          - Descriptions for Social Media
+            Handles
+      Technical Team
+      In the ever-evolving landscape of online ventures, a sturdy technical foundation is the cornerstone of success. Enter the Technical Team, the silent but indomitable backbone of the IT Club. We toil behind the scenes, guaranteeing the unswerving operation of digital platforms. From the intricacies of server management to the finesse of database optimization, we ensure that every component functions harmoniously, like a well-oiled machine. We are the unsung heroes who labor diligently to ensure that technology is our ally, not our adversary. In a world where the digital realm is in a constant state of flux, we stand as sentinels, fortifying the IT Club's virtual infrastructure, so that all its ventures and initiatives can flourish unhindered. Our commitment lies in making the technical complexities seem effortless, ensuring that the club's focus remains on innovation and growth, without any technical hindrances.
+      Functions :
+          - Making Presentations
+          - Hosting Webinar
+          - Making Google
+            Forms
+          - Updating contents on Social Media Handles and YouTube
+  AOS.init();
+  $(document).ready(function(){
+    $('img[src="img/lazy.png"]').each(function(index, el) {
+      $(el).attr('src', $(el).data('real-src'));
+    })
+  });
+
+
+FAQs:- 
+
+Question: What is the IT Club, and what is its primary purpose?
+Answer: The IT Club is a dynamic student organization dedicated to managing and organizing events at NGP Patna 13. Our primary purpose is to create a vibrant and engaging environment on campus by planning and executing a wide range of activities, including technical events, workshops, and cultural celebrations.
+
+Question: How can I join the IT Club, and do I need to be an engineering student?
+Answer: To become a part of the IT Club, please visit our 'Join Us' page on the club's website. There, you can submit your preferences and personal details. Following your submission, our team will reach out to you for tests and interviews, which are integral parts of the IT Club's new member admission process. You do not need to be an engineering student to join; we welcome students from various backgrounds who share a passion for technology and event management.
+
+Question: What are the different categories within the IT Club, and how can I get involved in each one?
+Answer: The IT Club comprises several diverse categories, each specializing in a unique aspect of event management and technology. These categories include website maintenance, photography, graphics designing, video editing, technical team, content writing, and social media management. To get involved in any of these categories, you will need to participate in tests and interviews during the new admission process. Once selected, you will become an integral part of the category you choose, contributing your skills and ideas to its success.
+
+Question: How often does the IT Club hold events and activities?
+Answer: The IT Club is active year-round and hosts events and activities frequently. You can expect exciting events, workshops, and meetings to take place, with many of them scheduled on Fridays for your convenience.
+
+Question: Can I join multiple categories within the IT Club, or should I choose only one?
+Answer: While it's certainly an option to be interested in multiple categories, it's recommended that you select the one that aligns best with your skills and interests. Focusing on a single category allows you to maximize your contributions and make the most of your experience within the club.
+
+Question: What benefits or skills can I gain from participating in the IT Club?
+Answer: Participating in the IT Club offers a wealth of benefits. You can acquire valuable skills related to your chosen category, gain hands-on experience in event management, improve teamwork and leadership abilities, expand your network, and even enhance your creativity. The club is a platform for personal and professional growth, as well as a fantastic opportunity to apply what you learn in your academic studies to real-world situations.
+
+Question: Is there a membership fee or any financial commitment required to join the IT Club?
+Answer: No, joining the IT Club is entirely free of any membership fees or financial obligations. We believe in inclusivity and providing opportunities to all students who are eager to be a part of our community.
+
+Question: How can I stay updated on the latest news and events from the IT Club?
+Answer: Staying informed about the latest news and events in the IT Club is easy. Regularly check the IT Club website, which serves as our central hub for announcements and information. Additionally, we highly recommend joining our official WhatsApp group, where you can receive real-time updates, engage in discussions, and connect with fellow club members.
+
+Question: Can I submit my own project or initiative to the IT Club for consideration?
+Answer: Absolutely! We encourage creativity and individual initiatives. If you have a project or idea you'd like to share, feel free to create it and reach out to IT Club leaders. We're open to collaborating and exploring new opportunities together.
+
+Question: Who can I contact if I have additional questions or need more information about the IT Club?
+Answer: If you have more questions or need further information about the IT Club, you can email one of our members directly. For additional contact details and ways to get in touch with our team, please visit the 'Members' page on our website. We are here to assist you and address any inquiries you may have.
+
+These are the total till now views or traffic on this website - 190 and this is of IT Club AI page total views - 106
+
+These are the notices and notice details: 
+ Format: {Notice Title, Notice Url, Notice Image Url, Notice Created at Timestamp}
+{World Environment Day, https://itclub.000.pe/notice.php?notice_id=26, https://itclub.000.pe/img/notices/1000057588_1717667832.jpg, 06 Jun 2024 15:27:13}
+{New Feature Release on Ask IT Club AI, https://itclub.000.pe/notice.php?notice_id=24, https://itclub.000.pe/img/notices/, 20 Feb 2024 15:02:06}
+{IT Club Members List Announcement (4th Induction), https://itclub.000.pe/notice.php?notice_id=12, https://itclub.000.pe/img/notices/IMG-20240109-WA0002_1704803218.jpg, 08 Jan 2024 18:22:16}
+{Important Notice: IT Club Selection Results Out Now!, https://itclub.000.pe/notice.php?notice_id=11, https://itclub.000.pe/img/notices/IMG-20240101-WA0012_1704110516.jpg, 01 Jan 2024 17:27:21}
+{IT Club Entrance Exam Results Released!, https://itclub.000.pe/notice.php?notice_id=9, https://itclub.000.pe/img/notices/, 29 Nov 2023 09:40:29}
+{ðŸŒŸ Introducing Our New Blog Section! ðŸŒŸ, https://itclub.000.pe/notice.php?notice_id=7, https://itclub.000.pe/img/notices/Leonardo_Diffusion_XL_Generate_an_image_that_encapsulates_the_0.jpg, 27 Nov 2023 22:06:25}
+{IT Club Registration Open - Secure Your Place!, https://itclub.000.pe/notice.php?notice_id=6, https://itclub.000.pe/img/notices/IMG-20231105-WA0014.jpg, 04 Nov 2023 12:17:45}
+{Celebrating IT Club 1000 Members Milestone ðŸš€ðŸŒðŸ’», https://itclub.000.pe/notice.php?notice_id=5, https://itclub.000.pe/img/notices/IMG_20231027_205920_469.jpg, 27 Oct 2023 21:00:58}
+{Exciting News: IT Club Website is Live!, https://itclub.000.pe/notice.php?notice_id=4, https://itclub.000.pe/img/notices/itclublogo.webp, 22 Oct 2023 20:33:48}
+
+These are the events and events details:
+ Format: {Event Title, Event Url, Event Image Url, Event Date, Event Google Photos Links: {Photos links (commas seperated if multiple)}, Event YouTube Video Links: {Video Links(commas seperated if multiple)}}
+{Sparrow Day: Celebrating Nature's Tiny Wonders, https://itclub.000.pe/event.php?event_id=15, https://itclub.000.pe/img/events/1000036552_1715785063.jpg, 2024-03-20Event Google Photos Links: {https://photos.app.goo.gl/jxyjRRVwH7ZcAJ6s9}, Event YouTube Video Links: {}}
+{National Science Day at New Government Polytechnic, Patna, https://itclub.000.pe/event.php?event_id=14, https://itclub.000.pe/img/events/IMG-20240223-WA0013_1708688023.jpg, 2024-02-23Event Google Photos Links: {https://photos.google.com/share/AF1QipNu36nBtmqJG1S8E2cPT-QbvJhpu8BmO6eReFZ_467h7oHBaSYpejcz5TFwW6TOvw?key=VnB6RDREaGwxSU1pZ0RTaFZyVlJGdTdOSk5NbmxR}, Event YouTube Video Links: {}}
+{In Memory of Heroes: Martyrs Day Tribute, https://itclub.000.pe/event.php?event_id=12, https://itclub.000.pe/img/events/IMG_20240202_001447_030_1706813284.jpg, 2024-01-30Event Google Photos Links: {}, Event YouTube Video Links: {}}
+{75th Republic Day, https://itclub.000.pe/event.php?event_id=11, https://itclub.000.pe/img/events/Screenshot_2024_0202_124628_1706867773.png, 2024-01-26Event Google Photos Links: {https://photos.app.goo.gl/77Ah3mMQZFaPA7Ku9}, Event YouTube Video Links: {}}
+{Earthquake Awareness Week (Seminar), https://itclub.000.pe/event.php?event_id=9, https://itclub.000.pe/img/events/Earthquake (1)_1705609774.png, 2024-01-20Event Google Photos Links: {https://photos.app.goo.gl/5RvUyehEXTPBYS2m7}, Event YouTube Video Links: {https://www.youtube.com/live/QeRT14vQ0Tk?si=HUIOLygOzvWcUFNs}}
+{Earthquake Awareness Week "à¤ªà¥à¤°à¤­à¤¾à¤¤ à¤«à¥‡à¤°à¥€", https://itclub.000.pe/event.php?event_id=8, https://itclub.000.pe/img/events/Screenshot (91)_1705609212.png, 2024-01-18Event Google Photos Links: {https://photos.app.goo.gl/grTTR917ey7WfYWo9}, Event YouTube Video Links: {}}
+{National Youth Day`24, https://itclub.000.pe/event.php?event_id=7, https://itclub.000.pe/img/events/WhatsApp Image 2024-01-12 at 13.33.41_1705046763.jpg, 2024-01-12Event Google Photos Links: {https://photos.app.goo.gl/4p4LrLGuxjLNCkmYA}, Event YouTube Video Links: {}}
+{Munshi Premchand Jayanti Celebration at NGP PATNA-13, https://itclub.000.pe/event.php?event_id=5, https://itclub.000.pe/img/events/IMG_20231027_222850_016.jpg, 2023-07-15Event Google Photos Links: {https://photos.app.goo.gl/qRZAvjCCwL2UXXCy5}, Event YouTube Video Links: {https://www.youtube.com/live/EfFqcmJukIE?feature=share}}
+{77th Independence Day Celebration at NGP PATNA-13, https://itclub.000.pe/event.php?event_id=3, https://itclub.000.pe/img/events/IMG_20231027_222634_895.jpg, 2023-08-15Event Google Photos Links: {https://photos.app.goo.gl/GYrpX6vSer96e7d27}, Event YouTube Video Links: {https://www.youtube.com/live/k1s8l9bObvg?feature=share}}
+{à¤¹à¤¿à¤‚à¤¦à¥€ à¤¦à¤¿à¤µà¤¸ à¤¸à¤®à¤¾à¤°à¥‹à¤¹: à¤¹à¤®à¤¾à¤°à¥€ à¤®à¤¾à¤¤à¥ƒà¤­à¤¾à¤·à¤¾ à¤•à¤¾ à¤—à¥Œà¤°à¤µ, https://itclub.000.pe/event.php?event_id=2, https://itclub.000.pe/img/events/IMG_20231027_205114_569.jpg, 2023-09-14Event Google Photos Links: {https://photos.app.goo.gl/goDX8Q4jV3UTLCuw9}, Event YouTube Video Links: {https://www.youtube.com/live/dKJQ5iRgluE?feature=shared}}
+{Youth to Youth Connect: BIS Seminar at NGP PATNA-13, https://itclub.000.pe/event.php?event_id=1, https://itclub.000.pe/img/events/IMG_20231027_204617_058.jpg, 2023-10-07Event Google Photos Links: {https://photos.app.goo.gl/LF7tt7ym784vcMsP7}, Event YouTube Video Links: {https://www.youtube.com/live/SNquuXUdkYI?si=smeZcDUy1Yr3Igs4}}
+
+These are the IT Club Members and their details: 
+Format: { Name, [Photo url], Category, Branch, Session, Email, LinkedIn, Instagram, Designation, Induction, Team Leader, Club Leader, Second Category (If Applicable)}
+{ Mohit kumar upadhayay, https://itclub.000.pe/img/members/sh_1704118901925.jpg, Website Maintenance, CE, 2023-26, mohitmikkuupadhyay02@gmail.com, Not available, Not available, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Harsh Raj, https://itclub.000.pe/img/members/sh_1704119099464.jpg, Photography, ME, 2023-26, jhamithileshkumar23@gmail.com, Not available, https://www.instagram.com/_harsh.jha_18?igsh=OGQ5ZDc2ODk2ZA==, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Sumit Raj, https://itclub.000.pe/img/members/sh_1704119381973.jpg, Graphics Designing, CSE, 2023-26, iamsraj0@gmail.com, Not available, https://www.instagram.com/sum1t.exe?igsh=dGVqZ3VuM2Z3MHBy, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Dhanraj kumar, https://itclub.000.pe/img/members/sh_1704119317581.jpg, Video Editing, ECE, 2023-26, dhanrajku7856@gmail.com, Not available, https://www.instagram.com/iam_perfect.03/, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Akshay Raj, https://itclub.000.pe/img/members/sh_1704120777062.jpg, Graphics Designing, AUTOM, 2023-26, krrishraj2007@gmail.com, https://www.linkedin.com/in/akshay-raj-b1a5732a7?utm_source=share&utm_campaign=share_via&utm_content, https://www.instagram.com/normie.kisu?igsh=OGQ5ZDc2ODk2ZA==, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Anushka Kumari, https://itclub.000.pe/img/members/sh_1704122194434.jpg, Content Writing, EE, 2023-26, runjhundevi049@gmail.com, Not available, Not available, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Anshuman, https://itclub.000.pe/img/members/sh_1704123406021.jpg, Graphics Designing, ECE, 2022-25, anshuman832003@gmail.com, https://www.linkedin.com/in/anshuman-6ixi9ine, Not available, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Sahil Raj, https://itclub.000.pe/img/members/sh_1704123492594.jpg, Video Editing, AUTOM, 2023-26, sahilraj878999@gmail.com, Not available, https://www.instagram.com/sahil_raj__8?igsh=eGZlN3Z2djE4bjJ2, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Khushi, https://itclub.000.pe/img/members/sh_1704124448754.jpg, Graphics Designing, EE, 2023-26, manojkumar.singh1974@gmail.com, Not available, Not available, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Rishav Kumar Singh, https://itclub.000.pe/img/members/sh_1704124779229.jpg, Photography, AUTOM, 2023-26, singhrishav1208@gmail.com, Not available, https://www.instagram.com/rishav_singh_08?igsh=ODA1NTc5OTg5Nw==, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Rishu Ranjan, https://itclub.000.pe/img/members/sh_1704125179049.jpg, Technical Team, EE, 2023-26, ranjanrishu771@gmail.com, Not available, https://www.instagram.com/rishu_singh_0987?igsh=ajFlcnA3MjRiN3p4, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Krishna Kanhaiya, https://itclub.000.pe/img/members/sh_1704126116159.jpg, Technical Team, EE, 2023-26, krishnakanhaiya7667@gmail.com, https://www.linkedin.com/in/krishna-kanhaiya-963a302a7?utm_source=share&utm_campaign=share_via&utm_c, https://www.instagram.com/krishnakanhaiya8051?igsh=MTI2YXFybzJlZ3lkZQ==, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Archana Kumari, https://itclub.000.pe/img/members/IMG-20240110-WA0005.jpg, Website Maintenance, CSE, 2023-26, luckykumari89611@gmail.com, Not available, Not available, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Srishti Kumari, https://itclub.000.pe/img/members/sh_1704129703324.jpg, Technical Team, EE, 2023-26, kumarisrishti2408@gmail.com, https://www.linkedin.com/in/srishti-kumari-a21a342a7?utm_source=share&utm_campaign=share_via&utm_con, https://www.instagram.com/invites/contact/?i=zm1guhyx0c5r&utm_content=oivjx3g, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Saket kumar jha, https://itclub.000.pe/img/members/sh_1704161622681.jpg, Photography, ME, 2023-26, saketjha893688@gmail.com, Not available, https://www.instagram.com/sanskari_saket/, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Chhavi kumari, https://itclub.000.pe/img/members/sh_1704169580894.jpg, Technical Team, CE, 2023-26, chhavikumaricivil@gmail.com, Not available, Not available, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Nitish Kumar Paswan, https://itclub.000.pe/img/members/sh_1704194333787.jpg, Social Media Management, EE, 2023-26, kumarnitish50639@gmail.com, https://www.linkedin.com/in/nitish-kumar-742b182a7, https://www.instagram.com/nitishkumar50639/, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Saurav Gupta, https://itclub.000.pe/img/members/sh_1704269724112.png, Technical Team, ME, 2023-26, sauravgupta7479@gmail.com, Not available, https://www.instagram.com/saurav_singh_official_?igsh=MXR4djExdjNvdmw5cQ==, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ ANGEL, https://itclub.000.pe/img/members/sh_1704291256799.jpg, Content Writing, ECE, 2023-26, angelanand0706@gmail.com, https://www.linkedin.com/in/angel-441a322a7?utm_source=share&utm_campaign=share_via&utm_content=prof, https://www.instagram.com/itsangel0706?igsh=NGVhN2U2NjQ0Yg==, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Ankush Aryan, https://itclub.000.pe/img/members/sh_1704144338292.jpg, Technical Team, ME, 2023-26, ankushvaadi@gmail.com, https://www.linkedin.com/mwlite/profile/in/ankush-aryan-4a35762a7?utm_source=share&utm_campaign=shar, https://www.instagram.com/ankush_ar_54/, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Ragni Singh, https://itclub.000.pe/img/members/sh_1704166591540.jpg, Technical Team, ECE, 2022-25, singhragnisingh57@gmail.com, Not available, https://www.instagram.com/winiii4756, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Prashant Kumar, https://itclub.000.pe/img/members/sh_1704373242647.jpg, Video Editing, CSE, 2023-26, singhp30410@gmail.com, Not available, Not available, Club Member, 4, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Omprakash Kumar, https://itclub.000.pe/img/members/1.webp, Website Maintenance, CSE, 2022-25, omprxz@gmail.com, https://www.linkedin.com/in/omprxz, https://www.instagram.com/omprxz, Website Maintenance Team Leader, 3, Website Maintenance Leader of 4 Induction (Generation), Not Club Leader, No any 2nd Category}
+{ Yash Kumar, https://itclub.000.pe/img/members/3.webp, Photography, AUTOM, 2022-25, yash39948@gmail.com, https://www.linkedin.com/in/yash-kumar-ab8235265, https://instagram.com/stfu_yassh?igshid=NGVhN2U2NjQ0Yg==, Photography Team Leader, 3, Photography Leader of 4 Induction (Generation), Not Club Leader, No any 2nd Category}
+{ Abhinav Koushik, https://itclub.000.pe/img/members/4.webp, Graphics Designing, CE, 2022-25, abhinavkoushikbnb@gmail.com, https://in.linkedin.com/in/abhinavkoushik77, https://www.instagram.com/abhinavkoushik77/, Club Member, 3, Not Team Leader, Club Leader of 4 Induction or Generation, No any 2nd Category}
+{ Raushan Kumar, https://itclub.000.pe/img/members/5.webp, Content Writing, EE, 2022-25, raushan0736@gmail.com, https://www.linkedin.com/in/raushan-kumar-3777a8296?utm_source=share&utm_campaign=share_via&utm_cont, https://instagram.com/thenameis_rk__?igshid=OGQ5ZDc2ODk2ZA==, Club Member, 3, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Adityansh Kumar Singh, https://itclub.000.pe/img/members/7.webp, Technical Team, ECE, 2022-25, adityanshsingh.adityansh@gmail.com, https://in.linkedin.com/in/adityansh, https://instagram.com/mr.scientist01?igshid=OGQ5ZDc2ODk2ZA==, Technical Team Leader, 3, Technical Team Leader of 4 Induction (Generation), Not Club Leader, No any 2nd Category}
+{ Priyadarshni Kumari, https://itclub.000.pe/img/members/8.webp, Social Media Management, ECE, 2022-25, pk1133606@gmail.com, https://www.linkedin.com/in/priyadarshni-kumari-b70643274?utm_source=share&utm_campaign=share_via&ut, https://instagram.com/nurizz___21?igshid=NGVhN2U2NjQ0Yg==, Social Media Management Team Leader, 3, Social Media Management Leader of 4 Induction (Generation), Not Club Leader, No any 2nd Category}
+{ Babi kumari, https://itclub.000.pe/img/members/10.webp, Graphics Designing, CSE, 2022-25, babigujral@gmail.com, https://www.linkedin.com/in/babi-kumari-866279289, https://instagram.com/babi_kumari_gujral_2023?igshid=MzRlODBiNWFlZA==, Graphics Designing Team Leader, 3, Graphics Designing Leader of 4 Induction (Generation), Not Club Leader, No any 2nd Category}
+{ Madhu kumari, https://itclub.000.pe/img/members/12.webp, Content Writing, CE, 2022-25, madhukumarijha62@gmail.com, https://www.linkedin.com/in/madhu-jha-223a84276?trk=contact-info, https://www.instagram.com/merasafar19/, Content Writing Team Leader, 3, Content Writing Leader of 4 Induction (Generation), Not Club Leader, No any 2nd Category}
+{ Khushi kumari
+, https://itclub.000.pe/img/members/13.webp, Video Editing, ECE, 2022-25, kumkhushi9386@gmail.com, https://www.linkedin.com/in/khushi-sharma-a9b177296?utm_source=share&utm_campaign=share_via&utm_cont, https://instagram.com/khushisharma20018?igshid=OGQ5ZDc2ODk2ZA==, Club Member, 3, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Aman Saurya, https://itclub.000.pe/img/members/19.jpeg, Website Maintenance, CSE, 2022-25, amansaurya2004@gmail.com, Not available, https://instagram.com/aman.saurya.9, Club Member, 3, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Pritam Kumar, https://itclub.000.pe/img/members/20.jpeg, Video Editing, CE, 2022-25, pritamkumar05298@gmail.com, https://www.linkedin.com/in/pritam-kumar-21569027b, https://instagram.com/aapka_pritampyare, Video Editing Team Leader, 3, Video Editing Leader of 4 Induction (Generation), Not Club Leader, No any 2nd Category}
+{ Utkarsh Kumar, https://itclub.000.pe/img/members/2.webp, Graphics Designing, CSE, 2021-24, utkarshkumargupta1415@gmail.com, https://www.linkedin.com/in/gupta-utkarsh-61ab16226, https://www.instagram.com/m_ohit_gupta, Club Member, 2, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Jyoti Kumari, https://itclub.000.pe/img/members/6.webp, Graphics Designing, CSE, 2021-24, jyotiwrs712@gmail.com, https://www.linkedin.com/in/jyoti-kumari-2509b2264?utm_source=share&utm_campaign=share_via&utm_conte, Not available, Graphics Designing Team Leader, 2, Graphics Designing Leader of 3 Induction (Generation), Not Club Leader, No any 2nd Category}
+{ Vivek Kumar, https://itclub.000.pe/img/members/9.webp, Photography, CSE, 2021-24, theversion1602@gmail.com, https://in.linkedin.com/in/vivek-kumar-083bb7234, https://www.instagram.com/vivek_18925a/, Photography Team Leader, 2, Photography Leader of 3 Induction (Generation), Not Club Leader, Website Maintenance}
+{ Mukund Kumar Ray, https://itclub.000.pe/img/members/11.webp, Video Editing, CSE, 2021-24, mukundkumar0606@gmail.com, https://www.linkedin.com/in/mukund-kumar-bb6a43264?utm_source=share&utm_campaign=share_via&utm_conte, Not available, Video Editing Team Leader, 2, Video Editing Leader of 3 Induction (Generation), Not Club Leader, No any 2nd Category}
+{ Sawli Bharti, https://itclub.000.pe/img/members/14.webp, Content Writing, CSE, 2021-24, bhartisawli@gmail.com, Not available, https://instagram.com/bharti_3883?igshid=MzRlODBiNWFlZA==, Content Writing Team Leader, 2, Content Writing Leader of 3 Induction (Generation), Not Club Leader, No any 2nd Category}
+{ Payal Rana, https://itclub.000.pe/img/members/15.webp, Content Writing, CSE, 2021-24, 6payalrana@gmail.com, https://www.linkedin.com/in/payal-rana-797812296, https://instagram.com/payalrana_06?igshid=MzRlODBiNWFlZA==, Content Writing Team Leader, 2, Content Writing Leader of 3 Induction (Generation), Not Club Leader, No any 2nd Category}
+{ Priya Kumari, https://itclub.000.pe/img/members/16.webp, Technical Team, ME, 2021-24, py336454@gmail.com, Not available, Not available, Technical Team Leader, 2, Technical Team Leader of 3 Induction (Generation), Not Club Leader, No any 2nd Category}
+{ Rounak Kumar, https://itclub.000.pe/img/members/17.webp, Technical Team, CSE, 2021-24, rounaksingh2779@gmail.com, Not available, https://instagram.com/imrounakrajput?utm_source=qr&igshid=MzNlNGNkZWQ4Mg==, Club Member, 2, Not Team Leader, Not Club Leader, No any 2nd Category}
+{ Md. Modassir Raza, https://itclub.000.pe/img/members/18.webp, Website Maintenance, EE, 2021-24, modassirraza616@gmail.com, Not available, https://www.instagram.com/modassir_raza_, Website Maintenance Team Leader, 2, Website Maintenance Leader of 3 Induction (Generation), Not Club Leader, Graphics Designing}
+
+Past induction members of 1st and 2nd induction in unstructured way :-
+Past Inductions
+2nd Induction >>>
+TEAM LEADER
+Satyam Kumar Singh_EE (2020-23)
+
+TEAM MEMBERS
+
+Content Writing:
+Deep Shree_EC (2020-23) - Category Head
+Hrithik Raj_ME (2020-23) - Category Head
+Payal Rana_CSE (2021-24)
+Sawli Bharti_CSE (2021-24)
+
+Video Editing:
+Govind Kumar Singh_CSE (2020-23) - Category Head
+Satyam Kumar Singh_EE (2020-23)
+Raushan Kumar_EE (2021-24)
+Rajveer Kumar_EE (2021-24)
+
+Graphic Designing:
+Mona Kumari_EC (2020-23) - Category Head
+Md. Modassir Raza_EE (2021-24)
+Jyoti Kumari_CSE (2021-24)
+
+Photography:
+Mukesh Kumar Choudhary_EC (2020-23) - Category Head
+Raushan Ragya_CSE (2020-23)
+Vivek Kumar_CSE (2021-24)
+Binit Kumar_EC (2021-24)
+
+Technical Team:
+Aniektan Kumar Singh_EC (2020-23) - Category Head
+Priya Kumari_ME (2021-24)
+
+Website Maintenance:
+Swati Sinha_CSE (2020-23)
+Satyam Kumar Singh_EE (2020-23)
+Vivek Kumar_CSE (2021-24)
+Md. Modassir Raza_EE (2021-24)
+
+Social Media Handling:
+Nikku Kumar Singh_EC (2020-23)
+Raunit_EE (2021-24)
+<<<
+  
+1st Induction >>>
+
+TEAM LEADER
+Ritesh Raj_AU (2019-22)
+
+TEAM MEMBERS
+
+Content Writing:
+Aisha_EL (2019-22) - Category Head
+Nitish Prakash_AU (2019-22) - Category Head
+Sangam Raj_EE (2019-22)
+Deep Shree_EC (2020-2023)
+Hrithik Raj_ME (2020-2023)
+
+Video Editing:
+Sushil Kumar Singh_ME (2019-22) - Category Head
+Mona Kumari_EC (2020-23)
+Gautam Gambhir_CSE (2019-22)
+Rajnish Kumar_CSE (2020-23)
+
+Graphic Designing:
+Mohit Kumar_C (2019-22) - Category Head
+Sushil Kumar Singh_ME (2019-22)
+Mona Kumari_EC (2020-23)
+Satyam Kumar Singh_EL (2020-23)
+
+Photography:
+Aman Shankar_CSE (2019-22) - Category Head
+Mukesh kr. Chaudhary_EC (2020-23)
+Swati Sinha_CSE (2020-23)
+
+Technical Team:
+Aashish Kumar_EC_15 (2019-22) - Category Head
+Amar Kumar_ME_35 (2019-22) - Category Head
+Aman Shankar_CSE_12 (2019-22)
+Mona Kumari_EC_7 (2020-2023)
+Payal Kumari_CSE_36 (2019-2022)
+Aniketan Kumar Singh_EC_32 (2020-2023)
+
+Web Designing:
+Tushar Kant_A_13 (2019-22) - Category Head
+Piyush Kumar_M_21 (2019-2022)
+Deep Shree_EC_08 (2020-23)
+Aditya Kumar_C_31 (2020-23)
+These are the blog details:
+ Format: {Title, Blog url, Meta Description, Tags, Views, Likes, Publish Time, Author Name}
+{Mastering the Art of Time Management, https://itclub.000.pe/blogs/blog.php?blogid=6, Maximize academic success with our time management guide. Explore tips, schedules, and smart goals for effective study routines. Excel in college with our expert advice!, time management,productivity,self help,personal development, 25, 2, 2024-01-27 03:28:59, Omprakash Kumar}
+{From HTML to Modern Frameworks: A Fascinating Journey into Frontend Web Development, https://itclub.000.pe/blogs/blog.php?blogid=4, Discover the captivating evolution of frontend web development, from HTML to modern frameworks, on our informative website., HTML,Modern Frameworks,Frontend Web Development,Web Development,Frontend,HTML to Modern Frameworks,Web Development Journey, 82, 10, 2024-01-12 13:53:07, Omprakash Kumar}
+{Web Development 101: The Step-by-Step Roadmap to Building Skills and Making Money, https://itclub.000.pe/blogs/blog.php?blogid=3, Embark on a web development journey from novice to pro! Explore HTML, CSS, JavaScript, and advanced tools. Learn front-end, back-end, or full-stack development, discover freelancing opportunities, and leverage resources from FreeCodeCamp, Codecademy, and Udemy. Join a supportive community, explore Apna College, and pave your path in the exciting world of web development., Learn Web Development Online,Beginners Guide to Web Development,Freelance Web Development Skills,Web Development Career Path,Web Development Courses Online,Web Development, 86, 17, 2024-01-10 20:01:07, Omprakash Kumar}
+{Naayi UMANG, https://itclub.000.pe/blogs/blog.php?blogid=2, Not Available, Not Available, 139, 30, 2024-01-03 20:19:34, Madhu jha}
+{The Dirty Little Secret: Why Your Computer Science Degree Won&#039;t Make You a Great Programmer, https://itclub.000.pe/blogs/blog.php?blogid=1, Explore the world of coding careers! Dive into the debate between computer science degrees, self-taught paths, bootcamps, and data science. Discover the real secret sauce beyond degrees, emphasizing practicality, continuous learning, and networking. Unveil your journey to programming greatness with passion and dedication. Happy coding!, computer science degree,computer science vs software engineering,computer science vs computer engineering,computer science degree vs self taught,computer science degree worth it,computer science degree vs bootcamp,computer science degree vs data science,Web development, 401, 69, 2023-11-28 12:26:16, Omprakash Kumar}
+
+These are the gallery images - []IT Club logo: https://itclub.000.pe/img/itclublogo.webpNGPP (New Government Polytechnic Patna 13) logo: https://itclub.000.pe/img/ngpplogo.jpg
+<<< Raw Data Ended Here
